@@ -1,0 +1,393 @@
+{
+  "site": {
+    "name": "Fortisec Telecoms",
+    "url": "https://fortisectelecoms.com",
+    "description": "Engineering the infrastructure that powers connectivity"
+  },
+  "navigation": {
+    "main": [
+      { "label": "Services", "href": "/services" },
+      { "label": "Projects", "href": "/projects" },
+      { "label": "About", "href": "/about" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "cta": { "label": "Get a Quote", "href": "/contact" }
+  },
+  "images": {
+    "service_images": {
+      "mast-construction": "/src/assets/projectPhotos/nort eastern.jpeg",
+      "fiber-cable": "/src/assets/projectPhotos/rf-system.jpeg",
+      "wifi": "/src/assets/projectPhotos/erriccsson link installation integration.jpeg",
+      "solar": "/src/assets/projectPhotos/solar.jpeg"
+    },
+    "team": {
+      "tm-1": "/src/assets/team/member1.svg",
+      "tm-2": "/src/assets/team/member1.svg",
+      "tm-3": "/src/assets/team/member1.svg",
+      "tm-4": "/src/assets/team/member1.svg"
+    },
+    "projects": {
+      "proj-1": "/src/assets/projectPhotos/aviat.jpeg",
+      "proj-2": "/src/assets/projectPhotos/erriccsson link installation integration.jpeg",
+      "proj-3": "/src/assets/projectPhotos/rf-system.jpeg",
+      "proj-4": "/src/assets/projectPhotos/nort eastern.jpeg"
+    },
+    "pages": {
+      "home": "/src/assets/projectPhotos/aviat.jpeg",
+      "about": "/src/assets/projectPhotos/erriccsson link installation integration.jpeg",
+      "story": "/src/assets/projectPhotos/juba,south sudan-2025.jpeg"
+    }
+  },
+  "footer": {
+    "services": [
+      { "label": "Mast Site Construction", "href": "/services#mast-construction" },
+      { "label": "Fiber Cable Installation", "href": "/services#fiber-cable" },
+      { "label": "WiFi Network Installation", "href": "/services#wifi" },
+      { "label": "Solar Power Systems", "href": "/services#solar" },
+      { "label": "Wind Turbine Installation", "href": "/services#wind" }
+    ],
+    "company": [
+      { "label": "About Us", "href": "/about" },
+      { "label": "Projects", "href": "/projects" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "contact": {
+      "phone": "+254 713 361 799",
+      "email": "info@fortisectel.com",
+      "address": "St. Georges House 3rd Floor,\nParliament Road, Nairobi."
+    },
+    "social": {
+      "linkedin": "#",
+      "twitter": "#",
+      "facebook": "#"
+    }
+  },
+  "home": {
+    "hero": {
+      "headline": "Engineering the Future of Connectivity",
+      "subheadline": "End-to-end telecommunications infrastructure — mast construction, fiber networks, wireless solutions, and renewable energy systems across the region.",
+      "ctaPrimary": "Our Services",
+      "ctaSecondary": "Contact Us"
+    },
+    "stats": [
+      { "value": 150, "suffix": "+", "label": "Projects Delivered" },
+      { "value": 45, "suffix": "+", "label": "Team Members" },
+      { "value": 12, "suffix": "+", "label": "Years Experience" },
+      { "value": 98, "suffix": "%", "label": "Client Satisfaction" }
+    ],
+    "services": [
+      {
+        "id": "mast-construction",
+        "title": "Mast Site Construction",
+        "description": "End-to-end tower erection and civil works for telecom infrastructure.",
+        "href": "/services#mast-construction"
+      },
+      {
+        "id": "fiber-cable",
+        "title": "Fiber Cable Installation",
+        "description": "High-speed fiber optic network deployment for enterprises and communities.",
+        "href": "/services#fiber-cable"
+      },
+      {
+        "id": "wifi",
+        "title": "WiFi Network Installation",
+        "description": "Enterprise-grade wireless solutions for campuses, ports, and urban areas.",
+        "href": "/services#wifi"
+      },
+      {
+        "id": "solar",
+        "title": "Solar Power Systems",
+        "description": "Off-grid and hybrid solar solutions for telecom sites and remote locations.",
+        "href": "/services#solar"
+      },
+      {
+        "id": "wind",
+        "title": "Wind Turbine Installation",
+        "description": "Renewable energy integration for sustainable telecom operations.",
+        "href": "/services#wind"
+      }
+    ],
+    "whyUs": {
+      "headline": "Why Choose Fortisec Telecoms",
+      "body": "We combine engineering excellence with local expertise to deliver critical infrastructure that connects communities and powers Kenya's digital future.",
+      "differentiators": [
+        {
+          "id": "d1",
+          "title": "End-to-End Expertise",
+          "description": "From site surveys to project handover — we manage every phase of your infrastructure project."
+        },
+        {
+          "id": "d2",
+          "title": "Quality Assurance",
+          "description": "Rigorous testing and quality control ensure reliable, long-lasting infrastructure."
+        },
+        {
+          "id": "d3",
+          "title": "Sustainable Solutions",
+          "description": "Green energy integration reduces operational costs and environmental impact."
+        },
+        {
+          "id": "d4",
+          "title": "Local Knowledge",
+          "description": "Deep understanding of regional challenges and regulatory requirements."
+        }
+      ]
+    },
+    "cta": {
+      "headline": "Ready to Build Your Infrastructure?",
+      "body": "Let's discuss your project — from mast construction to fiber networks and renewable energy.",
+      "buttonLabel": "Get in Touch"
+    }
+  },
+  "about": {
+    "hero": {
+      "headline": "Engineering the Infrastructure That Connects Communities",
+      "subheadline": "Fortisec Telecoms is a Kenyan telecommunications infrastructure company specializing in mast site construction, fiber cable installation, WiFi networks, and renewable energy systems."
+    },
+    "story": {
+      "headline": "Our Story",
+      "body": [
+        {
+          "id": "s1",
+          "text": "Founded with a mission to bridge Kenya's digital divide, Fortisec Telecoms has grown into a trusted partner for telecommunications infrastructure projects across the region."
+        },
+        {
+          "id": "s2",
+          "text": "Our team of experienced engineers and project managers deliver end-to-end solutions — from site surveys and design to construction, installation, and maintenance."
+        }
+      ]
+    },
+    "mission": {
+      "headline": "Mission & Values",
+      "statement": "To deliver reliable, sustainable telecommunications infrastructure that connects communities and empowers businesses across Kenya and beyond.",
+      "values": [
+        {
+          "id": "v1",
+          "title": "Safety First",
+          "description": "We prioritize the safety of our teams and communities in every project we undertake."
+        },
+        {
+          "id": "v2",
+          "title": "Engineering Excellence",
+          "description": "We adhere to the highest technical standards in all our infrastructure projects."
+        },
+        {
+          "id": "v3",
+          "title": "Quality Assurance",
+          "description": "Rigorous quality control ensures durable and reliable infrastructure."
+        },
+        {
+          "id": "v4",
+          "title": "Sustainability",
+          "description": "We integrate green energy solutions to reduce environmental impact."
+        },
+        {
+          "id": "v5",
+          "title": "Partnership",
+          "description": "We build lasting relationships with clients, partners, and communities."
+        },
+        {
+          "id": "v6",
+          "title": "Innovation",
+          "description": "We embrace new technologies to deliver better, faster, and smarter solutions."
+        }
+      ]
+    },
+    "team": {
+      "headline": "Leadership Team",
+      "members": [
+        {
+          "id": "tm-1",
+          "name": "James Mwangi",
+          "role": "CEO & Founder",
+          "bio": "15+ years in telecommunications infrastructure across East Africa."
+        },
+        {
+          "id": "tm-2",
+          "name": "Grace Otieno",
+          "role": "CTO",
+          "bio": "Expert in network engineering and renewable energy integration."
+        },
+        {
+          "id": "tm-3",
+          "name": "David Kamau",
+          "role": "Head of Projects",
+          "bio": "Project management specialist with a focus on large-scale infrastructure."
+        },
+        {
+          "id": "tm-4",
+          "name": "Amina Hassan",
+          "role": "Business Development",
+          "bio": "Strategic partnerships and business growth across the region."
+        }
+      ]
+    },
+    "certifications": {
+      "headline": "Standards We Uphold",
+      "items": [
+        {
+          "id": "c1",
+          "title": "ISO 9001:2015",
+          "body": "Quality management systems — ensuring consistent quality in every project."
+        },
+        {
+          "id": "c2",
+          "title": "NCA Approved Contractor",
+          "body": "Licensed by the Communications Authority of Kenya for telecom infrastructure."
+        }
+      ]
+    },
+    "cta": {
+      "headline": "Let's Build Something Great Together",
+      "body": "Whether you need a new mast, fiber network, or renewable energy solution, we're ready to help.",
+      "buttonLabel": "Contact Our Team"
+    }
+  },
+  "services": {
+    "hero": {
+      "headline": "Telecommunications & Green Energy Infrastructure",
+      "subheadline": "End-to-end services for mast construction, fiber networks, wireless solutions, and renewable energy systems."
+    },
+    "services": [
+      {
+        "id": "mast-construction",
+        "anchor": "mast-construction",
+        "title": "Mast Site Construction & Civil Works",
+        "tagline": "Tower Installation",
+        "description": "End-to-end tower erection and civil works for telecom infrastructure. We handle everything from site preparation and foundation work to tower assembly and antenna installation.",
+        "image": "/airo-assets/images/services/mast-construction",
+        "capabilities": [
+          "Site surveys and feasibility studies",
+          "Foundation design and construction",
+          "Tower erection and assembly",
+          "Antenna and equipment installation",
+          "Site security and fencing"
+        ]
+      },
+      {
+        "id": "fiber-cable",
+        "anchor": "fiber-cable",
+        "title": "Fiber Cable Installation",
+        "tagline": "High-Speed Connectivity",
+        "description": "Professional fiber optic cable installation for enterprise networks, residential areas, and community connectivity projects. We ensure reliable, high-speed data transmission.",
+        "image": "/airo-assets/images/services/fiber-cable",
+        "capabilities": [
+          "Underground and aerial fiber deployment",
+          "Fiber splicing and termination",
+          "Network design and planning",
+          "Testing and certification",
+          "Ongoing maintenance and support"
+        ]
+      },
+      {
+        "id": "wifi",
+        "anchor": "wifi",
+        "title": "WiFi Network Installation",
+        "tagline": "Wireless Connectivity",
+        "description": "Enterprise-grade WiFi network solutions for campuses, ports, urban areas, and remote locations. We design and deploy reliable wireless infrastructure.",
+        "image": "/airo-assets/images/services/wifi",
+        "capabilities": [
+          "Site surveys and RF planning",
+          "Access point deployment",
+          "Network configuration and optimization",
+          "Security and authentication",
+          "Capacity planning and scalability"
+        ]
+      },
+      {
+        "id": "solar",
+        "anchor": "solar",
+        "title": "Solar Power Systems",
+        "tagline": "Sustainable Energy",
+        "description": "Off-grid and hybrid solar solutions for telecom sites, remote locations, and commercial facilities. Reduce operational costs and environmental impact.",
+        "image": "/airo-assets/images/services/solar",
+        "capabilities": [
+          "Solar panel installation",
+          "Battery storage systems",
+          "Hybrid power solutions",
+          "System design and engineering",
+          "Maintenance and monitoring"
+        ]
+      }
+    ],
+    "cta": {
+      "headline": "Have a Project in Mind?",
+      "body": "Let's discuss your requirements and how we can bring your infrastructure project to life.",
+      "buttonLabel": "Get a Quote"
+    }
+  },
+  "projects": {
+    "hero": {
+      "headline": "Our Infrastructure Projects",
+      "subheadline": "A track record of delivering critical telecommunications and energy infrastructure across Kenya."
+    },
+    "stats": [
+      { "id": "s1", "value": "50+", "label": "Mast Sites" },
+      { "id": "s2", "value": "200km+", "label": "Fiber Laid" },
+      { "id": "s3", "value": "100+", "label": "WiFi Networks" },
+      { "id": "s4", "value": "15+", "label": "Solar Projects" }
+    ],
+    "projects": [
+      {
+        "id": "proj-1",
+        "title": "Aviat WTM installation and commissioning",
+        "category": "Fiber Cable Installation",
+        "location": "Nairobi",
+        "year": "2026",
+        "scope": "Deployment of 45km of fiber optic cable connecting key business districts in Nairobi.",
+        "highlights": ["45km fiber deployed", "Connecting 50+ business locations", "Service availability within 6 months"]
+      },
+      {
+        "id": "proj-2",
+        "title": "Erricsson links installation,integration and commissioning",
+        "category": "Mast Site Construction",
+        "location": "Rift Valley",
+        "year": "2024",
+        "scope": "Construction and installation of 12 telecom mast sites across the Rift Valley region.",
+        "highlights": ["12 mast sites completed", "Coverage for 4 counties", "Site-to-site connectivity enabled"]
+      },
+      {
+        "id": "proj-3",
+        "title": "RF system implementation",
+        "category": "WiFi Network Installation",
+        "location": "Mombasa",
+        "year": "2024",
+        "scope": "Enterprise WiFi network for the port complex, serving 200+ users simultaneously.",
+        "highlights": ["60+ access points", "Managed by Fortisec", "Hassle-free connectivity"]
+      },
+      {
+        "id": "proj-4",
+        "title": "North Eastern,Kenya 2021",
+        "category": "Solar Power Systems",
+        "location": "Northern Kenya",
+        "year": "2023",
+        "scope": "Construction and commissioning of 12 greenfield telecom sites throught the North Eastern Region,strengthening mobile network coverage and connecting communities with limited access to telecommunications services.",
+        "highlights": ["8 sites powered", "Hybrid battery integration", "Operational 24/7"]
+      }
+    ],
+    "cta": {
+      "headline": "Let's Build Your Next Project",
+      "body": "From planning to execution, we deliver infrastructure that makes a difference.",
+      "buttonLabel": "Start a Project"
+    }
+  },
+  "contact": {
+    "hero": {
+      "headline": "Let's Connect",
+      "subheadline": "Reach out to our team for project enquiries, quotes, or any questions about our infrastructure services."
+    },
+    "details": {
+      "phone": "+254 713 361 799",
+      "email": "info@fortisectel.com",
+      "address": "St. Georges House 3rd Floor,\nParliament Road, Nairobi.",
+      "hours": "Mon — Fri 8:00 AM — 5:00 PM EAT"
+    },
+    "services": [
+      { "id": "cs1", "label": "Mast Site Construction" },
+      { "id": "cs2", "label": "Fiber Cable Installation" },
+      { "id": "cs3", "label": "WiFi Network Installation" },
+      { "id": "cs4", "label": "Solar Power Systems" },
+      { "id": "cs5", "label": "Wind Turbine Installation" }
+    ]
+  }
+}

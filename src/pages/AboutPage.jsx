@@ -1,0 +1,146 @@
+import { Link } from 'react-router-dom';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import content from '../data/content.json';
+
+const about = content.about;
+const images = content.images || {};
+
+export default function AboutPage() {
+  const heroImage = images.pages?.about || '/airo-assets/images/pages/about/hero.jpg';
+  const storyImage = images.pages?.story || '/airo-assets/images/pages/about/story.jpg';
+  const teamImages = images.team || {};
+
+  return (
+    <>
+      {/* Hero */}
+      <section className="hero-section position-relative overflow-hidden bg-navy" style={{ minHeight: '60vh' }}>
+        <div className="position-absolute top-0 start-0 w-100 h-100">
+          <img
+            src={heroImage}
+            alt="About hero"
+            className="w-100 h-100 object-fit-cover"
+          />
+          <div className="hero-overlay" />
+        </div>
+
+        <Container className="hero-content position-relative pt-5 pb-5">
+          <Row className="align-items-center pt-5" style={{ minHeight: '45vh' }}>
+            <Col lg={8}>
+              <div className="animate-fade-in-up">
+                <span className="badge-pill-orange mb-3">About Us</span>
+                <h1 className="display-4 font-heading text-white fw-bold mt-2 mb-4">
+                  {about.hero.headline}
+                </h1>
+                <p className="lead text-navy-muted fs-5">
+                  {about.hero.subheadline}
+                </p>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Story */}
+      <section className="py-5 bg-white">
+        <Container className="py-4">
+          <Row className="align-items-center g-5 max-h-400px">
+            <Col lg={6}>
+              <span className="badge-pill-orange mb-3">Who We Are</span>
+              <h2 className="display-5 font-heading fw-bold mt-2 mb-4 text-dark">{about.story.headline}</h2>
+              {about.story.body.map((para) => (
+                <p key={para.id} className="text-muted fs-6 mb-3" style={{ lineHeight: 1.7 }}>{para.text}</p>
+              ))}
+            </Col>
+            <Col lg={6} >
+              <img
+                src={storyImage}
+                alt="Our story"
+                className="img-fluid rounded-4 shadow-lg"
+              />
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      {/* Mission & Values */}
+      <section className="py-5 bg-light-soft">
+        <Container className="py-4">
+          <div className="text-center mb-5">
+            <span className="badge-pill-orange mb-3">What Drives Us</span>
+            <h2 className="display-5 font-heading fw-bold mt-2 text-dark">{about.mission.headline}</h2>
+            <p className="lead text-muted mx-auto fs-5 fst-italic" style={{ maxWidth: '720px' }}>
+              "{about.mission.statement}"
+            </p>
+          </div>
+
+          <Row className="g-4">
+            {about.mission.values.map((value) => (
+              <Col key={value.id} md={4}>
+                <div className="bg-white p-4 rounded-4 shadow-sm h-100 card-hover">
+                  <div className="rounded-circle p-2.5 d-inline-flex mb-3" style={{ backgroundColor: 'rgba(245, 99, 13, 0.12)' }}>
+                    <svg className="text-primary-brand" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h5 className="font-heading fw-bold text-dark mb-2">{value.title}</h5>
+                  <p className="text-muted small mb-0">{value.description}</p>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </Container>
+      </section>
+
+      {/* Team */}
+      <section className="py-5 bg-white">
+        <Container className="py-4">
+          <div className="text-center mb-5">
+            <span className="badge-pill-orange mb-3">The People Behind the Work</span>
+            <h2 className="display-5 font-heading fw-bold mt-2 text-dark">{about.team.headline}</h2>
+          </div>
+
+          <Row className="g-4">
+            {about.team.members.map((member) => {
+              const imagePath = teamImages[member.id] || `/airo-assets/images/team/${member.id}.jpg`;
+              return (
+                <Col key={member.id} md={3} sm={6}>
+                  <div className="text-center p-3 rounded-4 bg-light-soft card-hover">
+                    <img
+                      src={imagePath}
+                      alt={member.name}
+                      className="rounded-circle mb-3 border border-3 border-white shadow-sm"
+                      width="140"
+                      height="140"
+                      style={{ objectFit: 'cover' }}
+                    />
+                    <h5 className="font-heading fw-bold text-dark mb-1">{member.name}</h5>
+                    <p className="text-primary-brand fw-semibold small mb-2">{member.role}</p>
+                    <p className="text-muted small mb-0">{member.bio}</p>
+                  </div>
+                </Col>
+              );
+            })}
+          </Row>
+        </Container>
+      </section>
+
+      {/* CTA */}
+      <section className="py-5 bg-navy text-white">
+        <Container className="py-4">
+          <Row className="justify-content-center text-center">
+            <Col lg={8}>
+              <h2 className="display-5 font-heading fw-bold text-white mb-4">{about.cta.headline}</h2>
+              <p className="lead text-navy-muted mb-4 fs-5">{about.cta.body}</p>
+              <Button as={Link} to="/contact" variant="primary" size="lg" className="px-5 py-3 rounded fw-semibold">
+                {about.cta.buttonLabel}
+                <svg className="ms-2" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+    </>
+  );
+}
