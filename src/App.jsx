@@ -1,7 +1,7 @@
 
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Layout from './components/layout/layout';
+import Layout from './components/layout/Layout';
 import ScrollToTop from './components/common/ScrollToTop';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
