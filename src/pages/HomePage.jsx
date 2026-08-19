@@ -33,9 +33,10 @@ export default function HomePage() {
           <div className="hero-overlay" />
         </div>
 
+        {/* Hero Content - Centered */}
         <Container className="hero-content position-relative pt-5 pb-5">
-          <Row className="min-vh-75 align-items-center pt-5">
-            <Col lg={8} xl={7}>
+          <Row className="min-vh-75 align-items-center justify-content-center pt-5">
+            <Col lg={8} xl={7} className="text-center">
               <div className="animate-fade-in-up">
                 <span className="badge-pill-orange d-inline-block mb-4">
                   Telecommunications Infrastructure
@@ -45,10 +46,10 @@ export default function HomePage() {
                   <br />
                   <span className="text-highlight-orange">Connect the World</span>
                 </h1>
-                <p className="lead text-navy-muted mb-4 fs-5" style={{ maxWidth: '620px', lineHeight: 1.7 }}>
+                <p className="lead text-navy-muted mb-4 fs-5 mx-auto" style={{ maxWidth: '620px', lineHeight: 1.7 }}>
                   Fortisec Telecoms delivers end-to-end telecommunications infrastructure — from mast construction and fiber installation to WiFi networks and green power systems.
                 </p>
-                <div className="d-flex flex-wrap gap-3 pt-2">
+                <div className="d-flex flex-wrap justify-content-center gap-3 pt-2">
                   <Button as={Link} to="/services" variant="primary" size="lg" className="px-5 py-3 fw-semibold rounded">
                     Our Services →
                   </Button>
@@ -61,14 +62,20 @@ export default function HomePage() {
           </Row>
         </Container>
 
-        {/* Stats Counter Bar */}
+        {/* Stats Counter Bar - Yellow Background */}
         <Container className="position-relative pb-5">
-          <Row className="bg-navy-light rounded-4 border border-white border-opacity-10 overflow-hidden shadow-lg g-0">
-            {home.stats.map((stat, index) => (
-              <Col key={index} xs={6} lg={3} className="px-0">
-                <Stat value={stat.value} suffix={stat.suffix} label={stat.label} />
-              </Col>
-            ))}
+          <Row className="justify-content-center">
+            <Col xs={12} lg={10}>
+              <div className="stats-bar bg-primary rounded-4 overflow-hidden shadow-lg">
+                <Row className="g-0">
+                  {home.stats.map((stat, index) => (
+                    <Col key={index} xs={6} lg={3} className="px-0">
+                      <Stat value={stat.value} suffix={stat.suffix} label={stat.label} />
+                    </Col>
+                  ))}
+                </Row>
+              </div>
+            </Col>
           </Row>
         </Container>
       </section>
