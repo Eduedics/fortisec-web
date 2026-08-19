@@ -8,8 +8,10 @@ import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
+import { useScrollReveal } from 'useScrollReveal.js'
 
 function App() {
+  useScrollReveal()
   return (
     <HelmetProvider>
       <BrowserRouter>
