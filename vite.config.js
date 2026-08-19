@@ -1,11 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
-import process from 'process';
 
 export default defineConfig({
   plugins: [react()],
-  base:process.env.VITE_BASE_PATH || "/fortisec-web",
+  // Vercel deployment - use root path
+  base: process.env.VITE_BASE_PATH || '/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -18,11 +18,8 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        // Silence deprecation warnings from Bootstrap
         silenceDeprecations: ['color-functions', 'import', 'legacy-js-api'],
-        // Use modern Sass API
         api: 'modern-compiler',
-        // DO NOT add additionalData here - it causes circular imports
       }
     }
   },
