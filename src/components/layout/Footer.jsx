@@ -18,7 +18,7 @@ export default function Footer() {
           <Col lg={4} md={6}>
             <Link to="/" className="d-inline-block mb-3">
               <img
-                src="/airo-assets/images/logo/horizontal/dark"
+                src="/assets/logo-fortisec.webp"
                 alt={siteName}
                 height="38"
                 className="object-contain"

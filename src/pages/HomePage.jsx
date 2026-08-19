@@ -10,9 +10,9 @@ const serviceImages = images.service_images || {};
 function Stat({ value, suffix, label }) {
   const { count, ref } = useCounter(value);
   return (
-    <div ref={ref} className="stat-counter px-4 py-4 text-center border-end border-white border-opacity-10">
+    <div ref={ref} className="stat-counter">
       <div className="stat-number">{count}{suffix}</div>
-      <div className="stat-label mt-1">{label}</div>
+      <div className="stat-label">{label}</div>
     </div>
   );
 }
@@ -37,22 +37,23 @@ export default function HomePage() {
           <Row className="min-vh-75 align-items-center pt-5">
             <Col lg={8} xl={7}>
               <div className="animate-fade-in-up">
-                <span className="badge-pill-orange mb-3">Telecommunications Infrastructure</span>
+                <span className="badge-pill-orange d-inline-block mb-4">
+                  Telecommunications Infrastructure
+                </span>
                 <h1 className="display-3 font-heading text-white fw-bold mt-2 mb-4" style={{ lineHeight: 1.15 }}>
-                  {home.hero.headline}
+                  Building the Networks That
+                  <br />
+                  <span className="text-highlight-orange">Connect the World</span>
                 </h1>
                 <p className="lead text-navy-muted mb-4 fs-5" style={{ maxWidth: '620px', lineHeight: 1.7 }}>
-                  {home.hero.subheadline}
+                  Fortisec Telecoms delivers end-to-end telecommunications infrastructure — from mast construction and fiber installation to WiFi networks and green power systems.
                 </p>
                 <div className="d-flex flex-wrap gap-3 pt-2">
-                  <Button as={Link} to="/services" variant="primary" size="lg" className="px-4 py-3 fw-semibold rounded">
-                    {home.hero.ctaPrimary}
-                    <svg className="ms-2" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
+                  <Button as={Link} to="/services" variant="primary" size="lg" className="px-5 py-3 fw-semibold rounded">
+                    Our Services →
                   </Button>
-                  <Button as={Link} to="/contact" variant="outline-light" size="lg" className="px-4 py-3 fw-semibold rounded">
-                    {home.hero.ctaSecondary}
+                  <Button as={Link} to="/contact" variant="outline-light" size="lg" className="px-5 py-3 fw-semibold rounded">
+                    Get a Quote
                   </Button>
                 </div>
               </div>
@@ -84,23 +85,23 @@ export default function HomePage() {
           </div>
 
           <Row className="g-4">
-            {home.services.map((service, index) => {
-              const isLarge = index === 0;
+            {home.services.map((service) => {
               const imagePath = serviceImages[service.id] || `/airo-assets/images/services/${service.id}.jpg`;
               return (
-                <Col key={service.id} md={isLarge ? 6 : 3} lg={isLarge ? 6 : 3}>
+                <Col key={service.id} lg={4} md={6}>
                   <div className="service-card shadow-sm h-100">
                     <img
                       src={imagePath}
                       alt={service.title}
                       className="service-image w-100"
-                      style={{ minHeight: isLarge ? '380px' : '300px' }}
+                      style={{ minHeight: '320px' }}
                     />
                     <div className="service-overlay">
-                      <h3 className="h4 font-heading text-white fw-bold mb-2">{service.title}</h3>
+                      <h3 className="h5 font-heading text-white fw-bold mb-2">{service.title}</h3>
                       <p className="text-white-50 small mb-3">{service.description}</p>
                       <Link to={service.href} className="text-primary-brand fw-semibold text-decoration-none d-inline-flex align-items-center">
-                        Learn More <svg className="ms-1.5" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        Learn More
+                        <svg className="ms-1.5" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                       </Link>

@@ -33,7 +33,7 @@ export default function Header() {
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center">
           <img
-            src="/airo-assets/images/logo/horizontal/dark"
+            src="/assets/logo-fortisec.webp"
             alt={siteName}
             height="38"
             className="d-inline-block align-top object-contain"

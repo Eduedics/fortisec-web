@@ -4,8 +4,14 @@ import content from '../data/content.json';
 
 const contactData = content.contact;
 
+// REPLACE THIS WITH YOUR FORMSPREE ENDPOINT
+// Get your endpoint from: https://formspree.io/
+// Replace the hardcoded endpoint with:
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/your-form-id';
+
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,15 +24,42 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFormStatus('sending');
-    // Simulate API call
-    setTimeout(() => {
-      setFormStatus('success');
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-      setTimeout(() => setFormStatus('idle'), 3000);
-    }, 1500);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          message: formData.message,
+          _subject: `New Contact Form Submission from ${formData.name}`
+        })
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+        // Reset success message after 5 seconds
+        setTimeout(() => setFormStatus('idle'), 5000);
+      } else {
+        const data = await response.json();
+        setErrorMessage(data.error || 'Something went wrong. Please try again.');
+        setFormStatus('error');
+      }
+    } catch (error) {
+      setErrorMessage('Network error. Please check your connection and try again.');
+      setFormStatus('error');
+    }
   };
 
   return (
@@ -127,10 +160,22 @@ export default function ContactPage() {
                   </div>
                   <h4 className="font-heading fw-bold text-dark mb-2">Message Sent!</h4>
                   <p className="text-muted">Thank you for reaching out. We will get back to you within one business day.</p>
+                  <Button 
+                    variant="outline-secondary" 
+                    className="mt-3 rounded-pill px-4"
+                    onClick={() => setFormStatus('idle')}
+                  >
+                    Send Another Message
+                  </Button>
                 </div>
               ) : (
                 <Form onSubmit={handleSubmit} className="bg-white p-4 p-lg-5 rounded-4 shadow-sm border">
                   <h5 className="font-heading fw-bold text-dark mb-4">Send Us a Message</h5>
+                  
+                  {/* Formspree hidden field for redirect (optional) */}
+                  <input type="hidden" name="_subject" value="New Contact Form Submission" />
+                  <input type="hidden" name="_captcha" value="false" />
+                  
                   <Row>
                     <Col md={6}>
                       <Form.Group className="mb-3.5">
@@ -200,13 +245,31 @@ export default function ContactPage() {
                       placeholder="Tell us about your project — location, scope, timeline…"
                     />
                   </Form.Group>
+
+                  {/* Error Message */}
+                  {formStatus === 'error' && (
+                    <div className="alert alert-danger d-flex align-items-center gap-2 py-2 px-3 mb-4" role="alert">
+                      <svg className="shrink-0" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="small">{errorMessage}</span>
+                    </div>
+                  )}
+
                   <Button
                     type="submit"
                     variant="primary"
                     className="px-5 py-3 rounded fw-semibold"
                     disabled={formStatus === 'sending'}
                   >
-                    {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+                    {formStatus === 'sending' ? (
+                      <>
+                        <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                        Sending...
+                      </>
+                    ) : (
+                      'Send Message'
+                    )}
                   </Button>
                   <p className="text-muted small mt-3 mb-0 opacity-75">We typically respond within one business day.</p>
                 </Form>

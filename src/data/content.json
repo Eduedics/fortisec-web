@@ -15,10 +15,12 @@
   },
   "images": {
     "service_images": {
-      "mast-construction": "/assets/projectPhotos/nort eastern.jpeg",
-      "fiber-cable": "/assets/projectPhotos/rf-system.jpeg",
-      "wifi": "/assets/projectPhotos/erriccsson link installation integration.jpeg",
-      "solar": "/assets/projectPhotos/solar.jpeg"
+      "Telecom": "/assets/projectPhotos/nort eastern.jpeg",
+      "Civil Works And Tower Erection": "/assets/projectPhotos/rf-system.jpeg",
+      "ICT": "/assets/projectPhotos/erriccsson link installation integration.jpeg",
+      "Mechanical": "/assets/projectPhotos/solar.jpeg",
+      "Solar": "/assets/projectPhotos/solar.jpeg",
+      "CCTV Installation": "/assets/projectPhotos/solar.jpeg"
     },
     "team": {
       "tm-1": "/assets/team/member1.svg",
@@ -41,8 +43,8 @@
   "footer": {
     "services": [
       { "label": "Mast Site Construction", "href": "/services#mast-construction" },
-      { "label": "Fiber Cable Installation", "href": "/services#fiber-cable" },
-      { "label": "WiFi Network Installation", "href": "/services#wifi" },
+      { "label": "Civil Works And Tower Erection", "href": "/services#Civil Works And Tower Erection" },
+      { "label": "ICT", "href": "/services#ICT" },
       { "label": "Solar Power Systems", "href": "/services#solar" },
       { "label": "Wind Turbine Installation", "href": "/services#wind" }
     ],
@@ -55,13 +57,37 @@
       "phone": "+254 713 361 799",
       "email": "inndosltd@gmail.com",
       "address": "Rehema House,Standard Street\nNairobi.",
-      "postal Address": "P.O. Box 6094-00100, Nairobi, Kenya"
+      "postalAddress": "P.O. Box 6094-00100, Nairobi, Kenya"
     },
     "social": {
       "linkedin": "#",
       "twitter": "#",
       "facebook": "#"
     }
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "subtitle": "Delivering critical infrastructure across the telecommunications ecosystem",
+    "items": [
+      {
+        "id": "telecom",
+        "title": "Telecom Operators",
+        "description": "MNOS requiring core network upgrade and backhaul fiber",
+        "color": "#f5630d"
+      },
+      {
+        "id": "isp",
+        "title": "Internet Service Providers",
+        "description": "ISPs scaling their FTTH/FTTB capacity",
+        "color": "#168ef9"
+      },
+      {
+        "id": "datacenter",
+        "title": "Data Centers",
+        "description": "High-density interconnects (DAC/AOC) for server farms",
+        "color": "#22c55e"
+      }
+    ]
   },
   "home": {
     "hero": {
@@ -78,34 +104,40 @@
     ],
     "services": [
       {
-        "id": "mast-construction",
-        "title": "Mast Site Construction",
-        "description": "End-to-end tower erection and civil works for telecom infrastructure.",
-        "href": "/services#mast-construction"
+        "id": "Telecom",
+        "title": "Telecommunication Services",
+        "description": "We provide comprehensive telecommunication solutions designed to establish reliable connectivity, improve network performance, and support the communication needs of businesses and organizations. Our services cover network infrastructure, fibre optic connectivity, and wireless communication systems.",
+        "href": "/services#Telecom"
       },
       {
-        "id": "fiber-cable",
-        "title": "Fiber Cable Installation",
-        "description": "High-speed fiber optic network deployment for enterprises and communities.",
-        "href": "/services#fiber-cable"
+        "id": "Civil Works And Tower Erection",
+        "title": "Civil Works And Tower Erection",
+        "description": "site acquisition,foundation design and construction,tower erection and assembly,antenna and equipment installation,site security and fencing.",
+        "href": "/services#Civil Works And Tower Erection"
       },
       {
-        "id": "wifi",
-        "title": "WiFi Network Installation",
-        "description": "Enterprise-grade wireless solutions for campuses, ports, and urban areas.",
-        "href": "/services#wifi"
+        "id": "ICT",
+        "title": "ICT Services",
+        "description": "We provide reliable and scalable technology solutions that help businesses build, maintain, and optimize their IT environments. Our services cover network infrastructure setup, IT support and maintenance, and data management solutions, ensuring that your systems remain secure, efficient, and available when you need.",
+        "href": "/services#ICT"
       },
       {
-        "id": "solar",
-        "title": "Solar Power Systems",
-        "description": "Off-grid and hybrid solar solutions for telecom sites and remote locations.",
-        "href": "/services#solar"
+        "id": "Mechanical",
+        "title": "Mechanical & Building Services",
+        "description": "We provide comprehensive mechanical and building infrastructure solutions designed to ensure reliable, efficient, and safe operation of essential facility systems. Our services cover HVAC systems, plumbing and piping, and power generation infrastructure.",
+        "href": "/services#Mechanical"
       },
       {
-        "id": "wind",
-        "title": "Wind Turbine Installation",
-        "description": "Renewable energy integration for sustainable telecom operations.",
-        "href": "/services#wind"
+        "id": "Solar",
+        "title": "Solar Energy Solutions",
+        "description": "We provide custom-designed solar energy solutions engineered around each client's specific energy requirements, available space, and long-term objectives. Rather than applying a one-size-fits-all approach, we design systems that maximize energy generation, efficiency, and value.",
+        "href": "/services#Solar"
+      },
+      {
+        "id": "CCTV Installation",
+        "title": "CCTV & Security Surveillance Solutions",
+        "description": "Protect what matters most with our professional CCTV installation and surveillance solutions. We design and install reliable security systems tailored to the unique layout and security requirements of your premises, giving you greater visibility and peace of mind.",
+        "href": "/services#CCTV Installation"
       }
     ],
     "whyUs": {
@@ -158,7 +190,7 @@
         }
       ]
     },
-    "vision": "To be the preferred and trusted partner in delivering innovative and sustainablesolutions accross Telecom,Civil,ICT,and Engineering sector in East Africs and beyond.",    
+    "vision": "To be the preferred and trusted partner in delivering innovative and sustainablesolutions accross Telecom,Civil,ICT,and Engineering sector in East Africs and beyond.",
     "mission": {
       "headline": "Our Mission",
       "statement": "To provide cutting-edge,reliable,and cost-effective solutions and exceed client expectations.We are dedicated to empowering our clients' success through our expertise,integrity,and commitment to quality",
@@ -237,63 +269,82 @@
     },
     "services": [
       {
-        "id": "mast-construction",
-        "anchor": "mast-construction",
-        "title": "Mast Site Construction & Civil Works",
-        "tagline": "Tower Installation",
-        "description": "End-to-end tower erection and civil works for telecom infrastructure. We handle everything from site preparation and foundation work to tower assembly and antenna installation.",
+        "id": "Telecom",
+        "anchor": "Telecom",
+        "title": "Telecommunication Services",
+        "tagline": "high-performance, scalable, and reliable telecommunication infrastructure.",
+        "description": "We provide comprehensive telecommunication solutions designed to establish reliable connectivity, improve network performance, and support the communication needs of businesses and organizations. Our services cover network infrastructure, fibre optic connectivity, and wireless communication systems.",
         "image": "/airo-assets/images/services/mast-construction",
         "capabilities": [
-          "Site surveys and feasibility studies",
-          "Foundation design and construction",
-          "Tower erection and assembly",
-          "Antenna and equipment installation",
-          "Site security and fencing"
+          "Network design and Implementation",
+          "Fibre Optic Installation and Maintenance.",
+          "Wireless Communication Solutions"
         ]
       },
       {
-        "id": "fiber-cable",
-        "anchor": "fiber-cable",
-        "title": "Fiber Cable Installation",
-        "tagline": "High-Speed Connectivity",
-        "description": "Professional fiber optic cable installation for enterprise networks, residential areas, and community connectivity projects. We ensure reliable, high-speed data transmission.",
-        "image": "/airo-assets/images/services/fiber-cable",
+        "id": "Civil Works And Tower Erection",
+        "anchor": "Civil Works And Tower Erection",
+        "title": "Civil Works And Tower Erection",
+        "tagline": "quality construction, structural reliability, safety, and efficient project delivery",
+        "description": "We provide comprehensive infrastructure development services covering site acquisition and development, tower construction and maintenance, and foundation works. Our solutions support projects from initial site preparation through construction and ongoing infrastructure maintenance, ensuring safe, reliable, and professionally delivered installations.",
+        "image": "/airo-assets/images/services/mast-construction",
         "capabilities": [
-          "Underground and aerial fiber deployment",
-          "Fiber splicing and termination",
-          "Network design and planning",
-          "Testing and certification",
-          "Ongoing maintenance and support"
+          "Site Aquisition and Development",
+          "Tower Construction and Maintenance",
+          "Foundation Works"
         ]
       },
       {
-        "id": "wifi",
-        "anchor": "wifi",
-        "title": "WiFi Network Installation",
-        "tagline": "Wireless Connectivity",
-        "description": "Enterprise-grade WiFi network solutions for campuses, ports, urban areas, and remote locations. We design and deploy reliable wireless infrastructure.",
-        "image": "/airo-assets/images/services/wifi",
+        "id": "ICT",
+        "anchor": "ICT",
+        "title": "IT Infrastructure & Data Management Services",
+        "tagline": "dependable IT infrastructure, proactive technical support, and well-managed data",
+        "description": "We provide reliable and scalable technology solutions that help businesses build, maintain, and optimize their IT environments. Our services cover network infrastructure setup, IT support and maintenance, and data management solutions, ensuring that your systems remain secure, efficient, and available when you need them.",
+        "image": "/assets/Proje",
         "capabilities": [
-          "Site surveys and RF planning",
-          "Access point deployment",
-          "Network configuration and optimization",
-          "Security and authentication",
-          "Capacity planning and scalability"
+          "Network Infrastracture Setup.",
+          "IT support and Maintenance.",
+          "Data Management Solutions."
         ]
       },
       {
-        "id": "solar",
-        "anchor": "solar",
-        "title": "Solar Power Systems",
-        "tagline": "Sustainable Energy",
-        "description": "Off-grid and hybrid solar solutions for telecom sites, remote locations, and commercial facilities. Reduce operational costs and environmental impact.",
+        "id": "Mechanical",
+        "anchor": "Mechanical",
+        "title": "Mechanical & Building Services",
+        "tagline": "quality workmanship,system reliability, energy efficiency, and preventive maintenance",
+        "description": "We provide comprehensive mechanical and building infrastructure solutions designed to ensure reliable, efficient, and safe operation of essential facility systems. Our services cover HVAC systems, plumbing and piping, and power generation infrastructure. Our approach focuses on quality workmanship, system reliability,energy efficiency, and preventive maintenance, helping organizations maintain safe, functional, and dependable facilities.",
         "image": "/airo-assets/images/services/solar",
         "capabilities": [
-          "Solar panel installation",
-          "Battery storage systems",
-          "Hybrid power solutions",
-          "System design and engineering",
-          "Maintenance and monitoring"
+          "HVAC Systems",
+          "Plumbing and Piping",
+          "Power Generation Infrastructure"
+        ]
+      },
+      {
+        "id": "Solar",
+        "anchor": "Solar",
+        "title": "Solar Energy Solutions",
+        "tagline": "efficient, reliable, and sustainable solar solutions",
+        "description": "We provide custom-designed solar energy solutions engineered around each client's specific energy requirements, available space, and long-term objectives. Rather than applying a one-size-fits-all approach, we design systems that maximize energy generation, efficiency, and value.",
+        "image": "/airo-assets/images/services/solar",
+        "capabilities": [
+          "Custom Solar Design.",
+          "Premium Solar Technology.",
+          "Seamless Installation & Integration",
+          "Sustainable Savings"
+        ]
+      },
+      {
+        "id": "CCTV Installation",
+        "anchor": "CCTV Installation",
+        "title": "CCTV & Security Surveillance Solutions",
+        "tagline": "Hardware:(Dome,Bullet, and PTZ cameras).Networking:(port forwarding,ip addressing,and PoE switches).Infrastructure:(Conduit bending,drywall fishing,and outdoor mounting).",
+        "description": "Our goal is to provide smart, reliable, and accessible surveillance solutions that help you monitor your property, deter security threats, and maintain greater control over your premises.Protect what matters most with our professional CCTV installation and surveillance solutions. We design and install reliable security systems tailored to the unique layout and security requirements of your premises, giving you greater visibility and peace of mind.",
+        "image": "/airo-assets/images/services/solar",
+        "capabilities": [
+          "Dome, Bullet, and PTZ Cameras",
+          "Port Forwarding, IP Addressing, and PoE Switches",
+          "Conduit Bending, Drywall Fishing, and Outdoor Mounting"
         ]
       }
     ],
@@ -306,7 +357,7 @@
   "projects": {
     "hero": {
       "headline": "Our Infrastructure Projects",
-      "subheadline": "A track record of delivering critical telecommunications and energy infrastructure across Kenya."
+      "subheadline": "We have successfully completed numerous projects for a diverse clientele.Some notable project are:."
     },
     "stats": [
       { "id": "s1", "value": "50+", "label": "Mast Sites" },
@@ -367,7 +418,7 @@
       "phone": "+254 713 361 799",
       "email": "info@fortisectel.com",
       "address": "St. Georges House 3rd Floor,\nParliament Road, Nairobi.",
-      "hours": "Mon — Fri 8:00 AM — 5:00 PM EAT"
+      "hours": "Mon — Fri 9:00 AM — 5:00 PM EAT"
     },
     "services": [
       { "id": "cs1", "label": "Mast Site Construction" },
