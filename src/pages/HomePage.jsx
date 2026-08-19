@@ -18,7 +18,7 @@ function Stat({ value, suffix, label }) {
 }
 
 export default function HomePage() {
-  const heroImage = images.pages?.home || '/airo-assets/images/pages/home/hero.jpg';
+  const heroImage = images.pages?.home || '/src/assets/projectPhotos/aviat.jpeg';
 
   return (
     <>

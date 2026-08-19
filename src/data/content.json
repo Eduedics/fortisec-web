@@ -53,8 +53,9 @@
     ],
     "contact": {
       "phone": "+254 713 361 799",
-      "email": "info@fortisectel.com",
-      "address": "St. Georges House 3rd Floor,\nParliament Road, Nairobi."
+      "email": "inndosltd@gmail.com",
+      "address": "Rehema House,Standard Street\nNairobi.",
+      "postal Address": "P.O. Box 6094-00100, Nairobi, Kenya"
     },
     "social": {
       "linkedin": "#",
@@ -64,7 +65,7 @@
   },
   "home": {
     "hero": {
-      "headline": "Engineering the Future of Connectivity",
+      "headline": "Connecting the Future of Telecommunications.",
       "subheadline": "End-to-end telecommunications infrastructure — mast construction, fiber networks, wireless solutions, and renewable energy systems across the region.",
       "ctaPrimary": "Our Services",
       "ctaSecondary": "Contact Us"
@@ -149,7 +150,7 @@
       "body": [
         {
           "id": "s1",
-          "text": "Founded with a mission to bridge Kenya's digital divide, Fortisec Telecoms has grown into a trusted partner for telecommunications infrastructure projects across the region."
+          "text": "Fortisec Inndos Ltd is a leading provider of comprehesive solutions in Telecom,civil Works ,ICT,Mechanical Engineering,Solar Energy,ans CCTV installation.With a commitment to excellence and innovation, we deliver high-quality services tailored to meet the unique needs of our clients.Our experienced team and customer-centric approach ensure project success and lasting partnerships."
         },
         {
           "id": "s2",
@@ -157,39 +158,25 @@
         }
       ]
     },
+    "vision": "To be the preferred and trusted partner in delivering innovative and sustainablesolutions accross Telecom,Civil,ICT,and Engineering sector in East Africs and beyond.",    
     "mission": {
-      "headline": "Mission & Values",
-      "statement": "To deliver reliable, sustainable telecommunications infrastructure that connects communities and empowers businesses across Kenya and beyond.",
+      "headline": "Our Mission",
+      "statement": "To provide cutting-edge,reliable,and cost-effective solutions and exceed client expectations.We are dedicated to empowering our clients' success through our expertise,integrity,and commitment to quality",
       "values": [
         {
           "id": "v1",
-          "title": "Safety First",
-          "description": "We prioritize the safety of our teams and communities in every project we undertake."
+          "title": "Quality",
+          "description": "We are commited to deliver exceptional services and solutions."
         },
         {
           "id": "v2",
-          "title": "Engineering Excellence",
-          "description": "We adhere to the highest technical standards in all our infrastructure projects."
+          "title": "Innovation",
+          "description": "We embrace creativity and continously seek innovative approaches."
         },
         {
           "id": "v3",
-          "title": "Quality Assurance",
-          "description": "Rigorous quality control ensures durable and reliable infrastructure."
-        },
-        {
-          "id": "v4",
-          "title": "Sustainability",
-          "description": "We integrate green energy solutions to reduce environmental impact."
-        },
-        {
-          "id": "v5",
-          "title": "Partnership",
-          "description": "We build lasting relationships with clients, partners, and communities."
-        },
-        {
-          "id": "v6",
-          "title": "Innovation",
-          "description": "We embrace new technologies to deliver better, faster, and smarter solutions."
+          "title": "Integrity",
+          "description": "We uphold the highest ethical standards in all our dealings."
         }
       ]
     },

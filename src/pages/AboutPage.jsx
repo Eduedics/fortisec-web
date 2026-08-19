@@ -43,20 +43,48 @@ export default function AboutPage() {
       {/* Story */}
       <section className="py-5 bg-white">
         <Container className="py-4">
-          <Row className="align-items-center g-5 max-h-400px">
+          {/* Story Row - Image and Text side by side */}
+          <Row className="align-items-center g-5">
             <Col lg={6}>
               <span className="badge-pill-orange mb-3">Who We Are</span>
               <h2 className="display-5 font-heading fw-bold mt-2 mb-4 text-dark">{about.story.headline}</h2>
               {about.story.body.map((para) => (
-                <p key={para.id} className="text-muted fs-6 mb-3" style={{ lineHeight: 1.7 }}>{para.text}</p>
+                <p key={para.id} className="text-muted fs-6 mb-3" style={{ lineHeight: 1.7 }}>
+                  {para.text}
+                </p>
               ))}
             </Col>
-            <Col lg={6} >
-              <img
-                src={storyImage}
-                alt="Our story"
-                className="img-fluid rounded-4 shadow-lg"
-              />
+            <Col lg={6}>
+              <div className="rounded-4 overflow-hidden shadow-lg" style={{ maxHeight: '320px' }}>
+                <img
+                  src={storyImage}
+                  alt="Our story"
+                  className="w-100 h-100 object-fit-cover"
+                  style={{ objectFit: 'cover', minHeight: '280px' }}
+                />
+              </div>
+            </Col>
+          </Row>
+
+          {/* Vision Block - Full width below */}
+          <Row className="mt-5 pt-4">
+            <Col lg={12}>
+              <div className="bg-primary bg-opacity-10 rounded-4 p-5 border-start border-5 border-primary">
+                <div className="d-flex align-items-start gap-3">
+                  <div className="bg-primary rounded-circle p-3 d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: '56px', height: '56px' }}>
+                    <svg width="28" height="28" fill="none" stroke="white" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="fw-bold text-dark mb-2">Our Vision</h3>
+                    <p className="text-muted fs-6 mb-0" style={{ lineHeight: 1.8, maxWidth: '800px' }}>
+                      {about.vision }
+                    </p>
+                  </div>
+                </div>
+              </div>
             </Col>
           </Row>
         </Container>
@@ -66,7 +94,7 @@ export default function AboutPage() {
       <section className="py-5 bg-light-soft">
         <Container className="py-4">
           <div className="text-center mb-5">
-            <span className="badge-pill-orange mb-3">What Drives Us</span>
+            {/* <span className="badge-pill-orange mb-3">What Drives Us</span> */}
             <h2 className="display-5 font-heading fw-bold mt-2 text-dark">{about.mission.headline}</h2>
             <p className="lead text-muted mx-auto fs-5 fst-italic" style={{ maxWidth: '720px' }}>
               "{about.mission.statement}"

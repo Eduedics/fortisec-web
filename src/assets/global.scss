@@ -376,7 +376,17 @@ a:hover {
     box-shadow: 0 0 0 0.2rem rgba(245, 99, 13, 0.18);
   }
 }
-
+.badge-pill-orange {
+  display: inline-block;
+  padding: 0.35rem 1.25rem;
+  background-color: rgba(249, 115, 22, 0.12);
+  color: #f97316;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 50px;
+}
 // ============================================
 // 9. RESPONSIVE BREAKPOINTS
 // ============================================
