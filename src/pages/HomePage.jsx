@@ -99,7 +99,7 @@ export default function HomePage() {
               const imagePath = serviceImages[service.id] || `/airo-assets/images/services/${service.id}.jpg`;
               return (
                 <Col key={service.id} lg={4} md={6}>
-                  <div className="service-card shadow-sm h-100">
+                  <div className="service-card shadow-sm h-100 service-card scroll-reveal-scale" style={{transitionDelay: '0.1s'}}>
                     <img
                       src={imagePath}
                       alt={service.title}

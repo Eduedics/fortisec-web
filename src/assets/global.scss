@@ -889,3 +889,50 @@ a:hover {
     height: 200px !important;
   }
 }
+
+// ============================================
+// CARD FLIP ON SCROLL
+// ============================================
+
+.scroll-reveal-flip-card {
+  opacity: 0;
+  transform: perspective(1000px) rotateY(15deg) rotateX(5deg) translateY(30px);
+  transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.scroll-reveal-flip-card.visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0);
+}
+
+// Different flip directions
+.scroll-reveal-flip-left {
+  opacity: 0;
+  transform: perspective(1000px) rotateY(15deg) translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.scroll-reveal-flip-left.visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(0deg) translateY(0);
+}
+
+.scroll-reveal-flip-right {
+  opacity: 0;
+  transform: perspective(1000px) rotateY(-15deg) translateY(20px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.scroll-reveal-flip-right.visible {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(0deg) translateY(0);
+}
