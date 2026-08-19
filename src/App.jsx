@@ -8,7 +8,7 @@ import ServicesPage from './pages/ServicesPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
-import { useScrollReveal } from 'useScrollReveal.js'
+import { useScrollReveal } from './hooks/useScrollReveal.js'
 
 function App() {
   useScrollReveal()
