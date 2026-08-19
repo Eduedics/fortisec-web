@@ -15,27 +15,27 @@
   },
   "images": {
     "service_images": {
-      "mast-construction": "/src/assets/projectPhotos/nort eastern.jpeg",
-      "fiber-cable": "/src/assets/projectPhotos/rf-system.jpeg",
-      "wifi": "/src/assets/projectPhotos/erriccsson link installation integration.jpeg",
-      "solar": "/src/assets/projectPhotos/solar.jpeg"
+      "mast-construction": "/assets/projectPhotos/nort eastern.jpeg",
+      "fiber-cable": "/assets/projectPhotos/rf-system.jpeg",
+      "wifi": "/assets/projectPhotos/erriccsson link installation integration.jpeg",
+      "solar": "/assets/projectPhotos/solar.jpeg"
     },
     "team": {
-      "tm-1": "/src/assets/team/member1.svg",
-      "tm-2": "/src/assets/team/member1.svg",
-      "tm-3": "/src/assets/team/member1.svg",
-      "tm-4": "/src/assets/team/member1.svg"
+      "tm-1": "/assets/team/member1.svg",
+      "tm-2": "/assets/team/member1.svg",
+      "tm-3": "/assets/team/member1.svg",
+      "tm-4": "/assets/team/member1.svg"
     },
     "projects": {
-      "proj-1": "/src/assets/projectPhotos/aviat.jpeg",
-      "proj-2": "/src/assets/projectPhotos/erriccsson link installation integration.jpeg",
-      "proj-3": "/src/assets/projectPhotos/rf-system.jpeg",
-      "proj-4": "/src/assets/projectPhotos/nort eastern.jpeg"
+      "proj-1": "/assets/projectPhotos/aviat.jpeg",
+      "proj-2": "/assets/projectPhotos/erriccsson link installation integration.jpeg",
+      "proj-3": "/assets/projectPhotos/rf-system.jpeg",
+      "proj-4": "/assets/projectPhotos/nort eastern.jpeg"
     },
     "pages": {
-      "home": "/src/assets/projectPhotos/aviat.jpeg",
-      "about": "/src/assets/projectPhotos/erriccsson link installation integration.jpeg",
-      "story": "/src/assets/projectPhotos/juba,south sudan-2025.jpeg"
+      "home": "/assets/projectPhotos/aviat.jpeg",
+      "about": "/assets/projectPhotos/erriccsson link installation integration.jpeg",
+      "story": "/assets/projectPhotos/juba,south sudan-2025.jpeg"
     }
   },
   "footer": {
