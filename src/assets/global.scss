@@ -265,6 +265,21 @@ a:hover {
   }
 }
 
+@keyframes signalPulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}
+
 .animate-fade-in-up {
   animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -308,11 +323,56 @@ a:hover {
 }
 
 // ============================================
-// 6. HERO SECTION
+// 6. TYPOGRAPHY - INDUSTRY STANDARD SIZES
+// ============================================
+
+// Hero Title - Large and Bold
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+// Hero Subtitle
+.hero-subtitle {
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  max-width: 620px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+// Section Titles
+.section-title {
+  font-size: clamp(2rem, 3vw, 2.75rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+// Section Subtitles
+.section-subtitle {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+// Hero Buttons
+.hero-btn {
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  padding: 0.75rem 2rem !important;
+}
+
+// CTA Button
+.cta-btn {
+  font-size: clamp(0.95rem, 1.1vw, 1.1rem);
+  padding: 0.85rem 2.5rem !important;
+}
+
+// ============================================
+// 7. HERO SECTION
 // ============================================
 .hero-section {
   position: relative;
-  min-height: 85vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -332,10 +392,12 @@ a:hover {
   }
 }
 
-// Stat Counter
+// ============================================
+// 8. STATS BAR - YELLOW BACKGROUND
+// ============================================
 .stats-bar {
-  background-color: #f97316 !important;
-  padding: 0.5rem 0;
+  background-color: #f5630d !important;
+  padding: 0.2rem 0;
   
   .stat-counter {
     padding: 1.5rem 1rem;
@@ -348,14 +410,14 @@ a:hover {
     
     .stat-number {
       font-family: var(--font-heading) !important;
-      font-size: 2.8rem;
+      font-size: clamp(1.8rem, 2.5vw, 2.8rem);
       font-weight: 700;
       color: #1c1917;
       line-height: 1.1;
     }
 
     .stat-label {
-      font-size: 0.85rem;
+      font-size: clamp(0.65rem, 0.8vw, 0.85rem);
       color: rgba(28, 25, 23, 0.7);
       text-transform: uppercase;
       letter-spacing: 0.06em;
@@ -366,60 +428,88 @@ a:hover {
 }
 
 // ============================================
-// RESPONSIVE STATS BAR
+// 9. NAVY DIVIDERS
 // ============================================
-
-@media (max-width: 992px) {
-  .stats-bar .stat-counter .stat-number {
-    font-size: 2.2rem;
-  }
+.navy-divider-top {
+  position: relative;
+  height: 40px;
+  background: var(--navy-color);
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 100%);
+  margin-top: -1px;
 }
 
-@media (max-width: 768px) {
-  .stats-bar {
-    padding: 0.25rem 0;
-  }
-  
-  .stats-bar .stat-counter {
-    padding: 1rem 0.5rem;
-    border-right: none;
-    border-bottom: 1px solid rgba(28, 25, 23, 0.08);
-    
-    &:last-child {
-      border-bottom: none;
-    }
-    
-    &:nth-child(odd) {
-      border-right: 1px solid rgba(28, 25, 23, 0.08);
-    }
-  }
-  
-  .stats-bar .stat-counter .stat-number {
-    font-size: 1.8rem;
-  }
-  
-  .stats-bar .stat-counter .stat-label {
-    font-size: 0.7rem;
-  }
+.navy-divider-bottom {
+  position: relative;
+  height: 50px;
+  background: var(--navy-color);
+  clip-path: polygon(0 0, 100% 0, 60% 100%, 0 100%);
+  margin-bottom: -1px;
 }
-
-@media (max-width: 576px) {
-  .stats-bar .stat-counter {
-    padding: 0.75rem 0.5rem;
-    
-    .stat-number {
-      font-size: 1.5rem;
-    }
-    
-    .stat-label {
-      font-size: 0.6rem;
-    }
-  }
-}
-
 
 // ============================================
-// 7. SERVICE CARD - OVERLAY STYLE
+// 10. SIGNAL ANIMATION - CTA SECTION
+// ============================================
+.signal-animation {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  opacity: 0.6;
+}
+
+.signal-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(245, 99, 13, 0.3);
+  animation: signalPulse 3s ease-in-out infinite;
+}
+
+.signal-ring-1 {
+  width: 60px;
+  height: 60px;
+  animation-delay: 0s;
+}
+
+.signal-ring-2 {
+  width: 100px;
+  height: 100px;
+  animation-delay: 0.6s;
+}
+
+.signal-ring-3 {
+  width: 140px;
+  height: 140px;
+  animation-delay: 1.2s;
+}
+
+.signal-ring-4 {
+  width: 180px;
+  height: 180px;
+  animation-delay: 1.8s;
+  border-color: rgba(245, 99, 13, 0.15);
+}
+
+.signal-center {
+  position: relative;
+  z-index: 2;
+  width: 48px;
+  height: 48px;
+  background: rgba(245, 99, 13, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(245, 99, 13, 0.2);
+}
+
+// ============================================
+// 11. SERVICE CARD - OVERLAY STYLE
 // ============================================
 .service-card {
   position: relative;
@@ -502,7 +592,7 @@ a:hover {
 }
 
 // ============================================
-// 8. CARD HOVER
+// 12. CARD HOVER
 // ============================================
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -517,7 +607,7 @@ a:hover {
 }
 
 // ============================================
-// 9. FORM CONTROL STYLING
+// 13. FORM CONTROL STYLING
 // ============================================
 .form-control, .form-select {
   border-color: var(--border-color);
@@ -532,7 +622,7 @@ a:hover {
 }
 
 // ============================================
-// 10. INDUSTRY CARDS
+// 14. INDUSTRY CARDS
 // ============================================
 .industry-card {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -579,7 +669,7 @@ a:hover {
 }
 
 // ============================================
-// 11. SERVICE CARD MODERN (For Services Page)
+// 15. SERVICE CARD MODERN (For Services Page)
 // ============================================
 .service-card-modern {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -634,7 +724,7 @@ a:hover {
 }
 
 // ============================================
-// 12. POSITIONING UTILITIES
+// 16. POSITIONING UTILITIES
 // ============================================
 .top-3 {
   top: 12px !important;
@@ -645,19 +735,27 @@ a:hover {
 }
 
 // ============================================
-// 13. RESPONSIVE BREAKPOINTS
+// 17. RESPONSIVE BREAKPOINTS
 // ============================================
 @media (max-width: 992px) {
   .hero-section {
-    min-height: 70vh;
+    min-height: 75vh;
   }
   
-  .stat-counter .stat-number {
+  .hero-title {
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+  }
+  
+  .stats-bar .stat-counter .stat-number {
     font-size: 2.2rem;
   }
   
   .service-card-modern .service-image-container {
     height: 200px !important;
+  }
+
+  .signal-animation {
+    display: none !important;
   }
 }
 
@@ -666,22 +764,46 @@ a:hover {
     min-height: 65vh;
   }
   
-  .stat-counter {
-    padding: 1rem 0.5rem;
+  .hero-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  }
+  
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1rem) !important;
+  }
+  
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+  }
+  
+  .section-subtitle {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem) !important;
+  }
+  
+  .stats-bar {
+    padding: 0.25rem 0;
+  }
+  
+  .stats-bar .stat-counter {
+    padding: 0.75rem 0.5rem;
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(28, 25, 23, 0.08);
     
     &:last-child {
       border-bottom: none;
     }
+    
+    &:nth-child(odd) {
+      border-right: 1px solid rgba(28, 25, 23, 0.08);
+    }
   }
   
-  .stat-counter .stat-number {
-    font-size: 1.8rem;
+  .stats-bar .stat-counter .stat-number {
+    font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
   }
   
-  .stat-counter .stat-label {
-    font-size: 0.7rem;
+  .stats-bar .stat-counter .stat-label {
+    font-size: clamp(0.5rem, 1.2vw, 0.65rem) !important;
   }
 
   .service-card {
@@ -717,15 +839,50 @@ a:hover {
       font-size: 1rem;
     }
   }
+
+  .navy-divider-top,
+  .navy-divider-bottom {
+    display: none !important;
+  }
 }
 
 @media (max-width: 576px) {
   .hero-section {
-    min-height: 55vh;
+    min-height: 60vh;
   }
   
-  .display-3 {
-    font-size: 2.5rem !important;
+  .hero-title {
+    font-size: clamp(1.5rem, 4vw, 2rem) !important;
+  }
+  
+  .hero-btn {
+    font-size: clamp(0.8rem, 2vw, 0.9rem) !important;
+    padding: 0.6rem 1.5rem !important;
+  }
+  
+  .cta-btn {
+    font-size: clamp(0.85rem, 2vw, 0.95rem) !important;
+    padding: 0.7rem 1.8rem !important;
+  }
+  
+  .service-card {
+    min-height: 240px;
+  }
+  
+  .service-card .service-image {
+    min-height: 200px;
+  }
+
+  .stats-bar .stat-counter {
+    padding: 0.5rem 0.25rem;
+    
+    .stat-number {
+      font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+    }
+    
+    .stat-label {
+      font-size: clamp(0.45rem, 1vw, 0.6rem) !important;
+    }
   }
   
   .service-card-modern .service-image-container {

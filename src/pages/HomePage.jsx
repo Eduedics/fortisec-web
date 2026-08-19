@@ -34,26 +34,26 @@ export default function HomePage() {
         </div>
 
         {/* Hero Content - Centered */}
-        <Container className="hero-content position-relative pt-5 pb-5">
-          <Row className="min-vh-75 align-items-center justify-content-center pt-5">
+        <Container className="hero-content position-relative pt-5 pb-2">
+          <Row className="min-vh-75 align-items-center justify-content-center pt-3">
             <Col lg={8} xl={7} className="text-center">
               <div className="animate-fade-in-up">
-                <span className="badge-pill-orange d-inline-block mb-4">
+                <span className="badge-pill-orange d-inline-block mt-3 mb-1">
                   Telecommunications Infrastructure
                 </span>
-                <h1 className="display-3 font-heading text-white fw-bold mt-2 mb-4" style={{ lineHeight: 1.15 }}>
+                <h1 className="hero-title font-heading text-white fw-normal mt-2 mb-4">
                   Building the Networks That
                   <br />
                   <span className="text-highlight-orange">Connect the World</span>
                 </h1>
-                <p className="lead text-navy-muted mb-4 fs-5 mx-auto" style={{ maxWidth: '620px', lineHeight: 1.7 }}>
+                <p className="hero-subtitle text-navy-muted mb-4 mx-auto">
                   Fortisec Telecoms delivers end-to-end telecommunications infrastructure — from mast construction and fiber installation to WiFi networks and green power systems.
                 </p>
                 <div className="d-flex flex-wrap justify-content-center gap-3 pt-2">
-                  <Button as={Link} to="/services" variant="primary" size="lg" className="px-5 py-3 fw-semibold rounded">
+                  <Button as={Link} to="/services" variant="primary" size="lg" className="px-5 py-3 fw-semibold rounded hero-btn">
                     Our Services →
                   </Button>
-                  <Button as={Link} to="/contact" variant="outline-light" size="lg" className="px-5 py-3 fw-semibold rounded">
+                  <Button as={Link} to="/contact" variant="outline-light" size="lg" className="px-5 py-3 fw-semibold rounded hero-btn">
                     Get a Quote
                   </Button>
                 </div>
@@ -80,13 +80,16 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* Navy Divider - Between Hero and Services */}
+      <div className="navy-divider-top d-none d-md-block"></div>
+
       {/* Services Section */}
       <section className="py-5 bg-light-soft">
         <Container className="py-4">
           <div className="text-center mb-5">
             <span className="badge-pill-orange mb-2">What We Do</span>
-            <h2 className="display-5 font-heading fw-bold mt-2 text-dark">Our Core Services</h2>
-            <p className="text-muted mx-auto" style={{ maxWidth: '560px' }}>
+            <h2 className="section-title font-heading fw-bold mt-2 text-dark">Our Core Services</h2>
+            <p className="section-subtitle text-muted mx-auto">
               End-to-end telecommunication and security solutions tailored for reliability, resilience, and scale.
             </p>
           </div>
@@ -101,7 +104,6 @@ export default function HomePage() {
                       src={imagePath}
                       alt={service.title}
                       className="service-image w-100"
-                      style={{ minHeight: '320px' }}
                     />
                     <div className="service-overlay">
                       <h3 className="h5 font-heading text-white fw-bold mb-2">{service.title}</h3>
@@ -127,7 +129,7 @@ export default function HomePage() {
           <Row className="align-items-center g-5">
             <Col lg={6}>
               <span className="badge-pill-navy mb-3">Why Fortisectel</span>
-              <h2 className="display-5 font-heading fw-bold text-white mt-2 mb-4">{home.whyUs.headline}</h2>
+              <h2 className="section-title font-heading fw-bold text-white mt-2 mb-4">{home.whyUs.headline}</h2>
               <p className="text-navy-muted lead fs-5 mb-0" style={{ lineHeight: 1.7 }}>{home.whyUs.body}</p>
             </Col>
             <Col lg={6}>
@@ -151,15 +153,32 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-5 bg-white">
-        <Container className="py-4">
+      {/* Navy Divider - Between Why Fortisec and CTA */}
+      <div className="navy-divider-bottom d-none d-md-block"></div>
+
+      {/* CTA Section with Signal Animation */}
+      <section className="py-5 bg-white position-relative overflow-hidden">
+        {/* Signal Animation - Desktop Only */}
+        <div className="signal-animation d-none d-lg-block">
+          <div className="signal-ring signal-ring-1"></div>
+          <div className="signal-ring signal-ring-2"></div>
+          <div className="signal-ring signal-ring-3"></div>
+          <div className="signal-ring signal-ring-4"></div>
+          <div className="signal-center">
+            <svg width="32" height="32" fill="none" stroke="#f5630d" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.288 15.038a5.25 5.25 0 017.424 0M5.106 11.856a8.25 8.25 0 0113.788 0M1.924 8.674a11.25 11.25 0 0120.152 0" />
+              <circle cx="12" cy="18" r="1.5" fill="#f5630d" />
+            </svg>
+          </div>
+        </div>
+
+        <Container className="py-4 position-relative" style={{ zIndex: 2 }}>
           <Row className="justify-content-center text-center">
             <Col lg={8}>
               <span className="badge-pill-orange mb-3">Get Started</span>
-              <h2 className="display-5 font-heading fw-bold mt-2 mb-3 text-dark">{home.cta.headline}</h2>
-              <p className="lead text-muted mb-4 fs-5">{home.cta.body}</p>
-              <Button as={Link} to="/contact" variant="primary" size="lg" className="px-5 py-3 rounded fw-semibold">
+              <h2 className="section-title font-heading fw-bold mt-2 mb-3 text-dark">{home.cta.headline}</h2>
+              <p className="section-subtitle text-muted mb-4">{home.cta.body}</p>
+              <Button as={Link} to="/contact" variant="primary" size="lg" className="px-5 py-3 rounded fw-semibold cta-btn">
                 {home.cta.buttonLabel}
                 <svg className="ms-2" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
