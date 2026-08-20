@@ -27,50 +27,61 @@ export default function ContactPage() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setFormStatus('sending');
-    setErrorMessage('');
+  e.preventDefault();
+  setFormStatus('sending');
+  setErrorMessage('');
 
-    // Validate endpoint exists
-    if (!FORMSPREE_ENDPOINT) {
-      setErrorMessage('Form configuration error. Please contact support.');
+  // Log the endpoint to verify it's correct
+  console.log('Formspree Endpoint:', FORMSPREE_ENDPOINT);
+
+  if (!FORMSPREE_ENDPOINT) {
+    setErrorMessage('Form configuration error. Please contact support.');
+    setFormStatus('error');
+    return;
+  }
+
+  try {
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      service: formData.service,
+      message: formData.message,
+      _subject: `New Contact Form Submission from ${formData.name}`
+    };
+
+    console.log('Sending payload:', payload);
+
+    const response = await fetch(FORMSPREE_ENDPOINT, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    console.log('Response status:', response.status);
+    console.log('Response ok:', response.ok);
+
+    if (response.ok) {
+      setFormStatus('success');
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
+      setTimeout(() => setFormStatus('idle'), 5000);
+    } else {
+      const data = await response.json();
+      console.error('Error response:', data);
+      setErrorMessage(data.error || `Error ${response.status}: Something went wrong.`);
       setFormStatus('error');
-      return;
     }
-
-    try {
-      const response = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          message: formData.message,
-          _subject: `New Contact Form Submission from ${formData.name}`
-        })
-      });
-
-      if (response.ok) {
-        setFormStatus('success');
-        setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-        // Reset success message after 5 seconds
-        setTimeout(() => setFormStatus('idle'), 5000);
-      } else {
-        const data = await response.json();
-        setErrorMessage(data.error || 'Something went wrong. Please try again.');
-        setFormStatus('error');
-      }
-    } catch (error) {
-      console.error('Form submission error:', error);
-      setErrorMessage('Network error. Please check your connection and try again.');
-      setFormStatus('error');
-    }
-  };
+  } catch (error) {
+    console.error('Fetch error details:', error);
+    console.error('Error message:', error.message);
+    console.error('Error stack:', error.stack);
+    setErrorMessage(`Network error: ${error.message}. Please check your connection and try again.`);
+    setFormStatus('error');
+  }
+};
 
   return (
     <>
