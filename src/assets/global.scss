@@ -321,7 +321,71 @@ a:hover {
     }
   }
 }
+// ============================================
+// FOOTER ENHANCEMENTS
+// ============================================
 
+footer {
+  // Smooth text rendering
+  .text-navy-muted {
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  // Link hover transition
+  .hover-text-primary {
+    transition: color 0.2s ease;
+    
+    &:hover {
+      color: var(--primary-color) !important;
+    }
+  }
+
+  // Social icons
+  .transition-colors {
+    transition: background-color 0.25s ease, transform 0.25s ease;
+    
+    &:hover {
+      transform: translateY(-2px);
+    }
+  }
+
+  // List items
+  ul li {
+    transition: transform 0.2s ease;
+    
+    &:hover {
+      transform: translateX(2px);
+    }
+  }
+
+  // Heading styles
+  .font-heading {
+    letter-spacing: 0.08em;
+    font-size: 0.7rem;
+  }
+
+  // Contact items
+  .d-flex.align-items-start {
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  footer {
+    .text-navy-muted.small {
+      font-size: 0.8rem;
+    }
+    
+    .gap-4 {
+      gap: 1.5rem !important;
+    }
+  }
+}
 // ============================================
 // 6. TYPOGRAPHY - INDUSTRY STANDARD SIZES
 // ============================================
@@ -381,7 +445,7 @@ a:hover {
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(14, 23, 38, 0.88) 0%, rgba(14, 23, 38, 0.55) 60%, rgba(14, 23, 38, 0.35) 100%);
+    background: linear-gradient(135deg, rgba(14, 23, 38, 0.88) 0%, rgba(21, 42, 79, 0.55) 60%, rgba(14, 23, 38, 0.35) 100%);
     z-index: 1;
   }
 

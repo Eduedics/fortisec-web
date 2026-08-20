@@ -40,18 +40,22 @@
       "story": "/assets/projectPhotos/juba,south sudan-2025.jpeg"
     }
   },
+
+
   "footer": {
     "services": [
-      { "label": "Mast Site Construction", "href": "/services#mast-construction" },
-      { "label": "Civil Works And Tower Erection", "href": "/services#Civil Works And Tower Erection" },
-      { "label": "ICT", "href": "/services#ICT" },
-      { "label": "Solar Power Systems", "href": "/services#solar" },
-      { "label": "Wind Turbine Installation", "href": "/services#wind" }
+      { "label": "Telecommunication Services", "href": "/services#Telecommunication Services" },
+      { "label": "Civil Works And Tower Erectionn", "href": "/services#Civil Works And Tower Erection" },
+      { "label": "ICT Services", "href": "/services#ICT" },
+      { "label": "Mechanical & Building Services", "href": "/services#Mechanical" },
+      { "label": "Solar Energy Solutions", "href": "/services#Solar" },
+      { "label": "CCTV & Security Surveillance Solutions", "href": "/services#CCTV" }
     ],
     "company": [
       { "label": "About Us", "href": "/about" },
       { "label": "Projects", "href": "/projects" },
-      { "label": "Contact", "href": "/contact" }
+      { "label": "Contact", "href": "/contact" },
+      { "label": "Services", "href": "/services" }
     ],
     "contact": {
       "phone": "+254 713 361 799",
@@ -421,12 +425,12 @@
       "hours": "Mon — Fri 9:00 AM — 5:00 PM EAT"
     },
     "services": [
-      { "id": "cs1", "label": "Mast Site Construction" },
-      { "id": "cs2", "label": "Fiber Cable Installation" },
-      { "id": "cs3", "label": "WiFi Network Installation" },
-      { "id": "cs4", "label": "Solar Power Systems" },
-      { "id": "cs5", "label": "Wind Turbine Installation" },
-      { "id": "cs6", "label": "Telecommunications" }
+      { "id": "cs1", "label": "Telecommunication Services" },
+      { "id": "cs2", "label": "Civil Works And Tower Erectionn" },
+      { "id": "cs3", "label": "ICT Services" },
+      { "id": "cs4", "label": "Mechanical & Building Services" },
+      { "id": "cs5", "label": "Solar Energy Solutions" },
+      { "id": "cs6", "label": "CCTV & Security Surveillance Solutions" }
     ]
   }
 }

@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy text-navy-foreground pt-5 pb-4">
       <Container className="pt-3">
-        <Row className="g-4 pb-5">
+        <Row className="g-4 pb-4">
           {/* Brand Col */}
           <Col lg={4} md={6}>
             <Link to="/" className="d-inline-block mb-3">
@@ -24,7 +24,7 @@ export default function Footer() {
                 className="object-contain"
               />
             </Link>
-            <p className="text-navy-muted small mb-4pe-lg-4" style={{ lineHeight: 1.7 }}>
+            <p className="text-navy-muted small mb-4" style={{ lineHeight: 1.7, maxWidth: '320px' }}>
               Engineering the infrastructure that powers connectivity — from towers to fiber, WiFi to green energy.
             </p>
             <div className="d-flex gap-2">
@@ -63,11 +63,11 @@ export default function Footer() {
 
           {/* Services Col */}
           <Col lg={2} md={6}>
-            <h6 className="font-heading text-uppercase text-white small fw-bold tracking-widest mb-4">Services</h6>
+            <h6 className="font-heading text-uppercase text-white small fw-bold tracking-widest mb-3">Services</h6>
             <ul className="list-unstyled mb-0">
               {services.map((s) => (
-                <li key={s.href} className="mb-2.5">
-                  <Link to={s.href} className="text-navy-muted text-decoration-none small hover-text-primary">
+                <li key={s.href} className="mb-2">
+                  <Link to={s.href} className="text-navy-muted text-decoration-none small hover-text-primary d-block" style={{ lineHeight: 1.4 }}>
                     {s.label}
                   </Link>
                 </li>
@@ -77,11 +77,11 @@ export default function Footer() {
 
           {/* Company Col */}
           <Col lg={2} md={6}>
-            <h6 className="font-heading text-uppercase text-white small fw-bold tracking-widest mb-4">Company</h6>
+            <h6 className="font-heading text-uppercase text-white small fw-bold tracking-widest mb-3">Company</h6>
             <ul className="list-unstyled mb-0">
               {company.map((c) => (
-                <li key={c.href} className="mb-2.5">
-                  <Link to={c.href} className="text-navy-muted text-decoration-none small hover-text-primary">
+                <li key={c.href} className="mb-2">
+                  <Link to={c.href} className="text-navy-muted text-decoration-none small hover-text-primary d-block" style={{ lineHeight: 1.4 }}>
                     {c.label}
                   </Link>
                 </li>
@@ -91,34 +91,34 @@ export default function Footer() {
 
           {/* Contact Col */}
           <Col lg={4} md={6}>
-            <h6 className="font-heading text-uppercase text-white small fw-bold tracking-widest mb-4">Contact</h6>
+            <h6 className="font-heading text-uppercase text-white small fw-bold tracking-widest mb-3">Contact</h6>
             <ul className="list-unstyled small text-navy-muted mb-0">
-              <li className="mb-3 d-flex align-items-start">
-                <svg className="text-primary-brand me-3 mt-1 shrink-0" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <li className="mb-2.5 d-flex align-items-start">
+                <svg className="text-primary-brand me-2.5 mt-0.5 shrink-0" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <span>{contact.phone}</span>
+                <span style={{ lineHeight: 1.4 }}>{contact.phone}</span>
               </li>
-              <li className="mb-3 d-flex align-items-start">
-                <svg className="text-primary-brand me-3 mt-1 shrink-0" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <li className="mb-2.5 d-flex align-items-start">
+                <svg className="text-primary-brand me-2.5 mt-0.5 shrink-0" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <span>{contact.email}</span>
+                <span style={{ lineHeight: 1.4 }}>{contact.email}</span>
               </li>
               <li className="d-flex align-items-start">
-                <svg className="text-primary-brand me-3 mt-1 shrink-0" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="text-primary-brand me-2.5 mt-0.5 shrink-0" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span style={{ whiteSpace: 'pre-line' }}>{contact.address}</span>
+                <span style={{ whiteSpace: 'pre-line', lineHeight: 1.4 }}>{contact.address}</span>
               </li>
             </ul>
           </Col>
         </Row>
 
-        <hr style={{ borderColor: 'rgba(255, 255, 255, 0.1)' }} />
+        <hr style={{ borderColor: 'rgba(255, 255, 255, 0.08)' }} />
 
-        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 pt-3">
+        <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 pt-2">
           <p className="text-navy-muted small mb-0 opacity-75">
             © {getCurrentYear()} {siteName}. All rights reserved.
           </p>
