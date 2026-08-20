@@ -4,10 +4,12 @@ import content from '../data/content.json';
 
 const contactData = content.contact;
 
-// REPLACE THIS WITH YOUR FORMSPREE ENDPOINT
-// Get your endpoint from: https://formspree.io/
-// Replace the hardcoded endpoint with:
-const FORMSPREE_ENDPOINT = import.meta.env.FORMSPREE_ENDPOINT;
+//  Correct way to access Vite environment variables
+// Must start with VITE_ prefix
+const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
+
+// For debugging - log to see if it's loading correctly
+console.log('Formspree Endpoint:', FORMSPREE_ENDPOINT);
 
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState('idle');
@@ -28,6 +30,13 @@ export default function ContactPage() {
     e.preventDefault();
     setFormStatus('sending');
     setErrorMessage('');
+
+    // Validate endpoint exists
+    if (!FORMSPREE_ENDPOINT) {
+      setErrorMessage('Form configuration error. Please contact support.');
+      setFormStatus('error');
+      return;
+    }
 
     try {
       const response = await fetch(FORMSPREE_ENDPOINT, {
@@ -57,6 +66,7 @@ export default function ContactPage() {
         setFormStatus('error');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setErrorMessage('Network error. Please check your connection and try again.');
       setFormStatus('error');
     }
