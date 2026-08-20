@@ -120,6 +120,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
+      {/* Team */}
       <section className="py-5 bg-white">
         <Container className="py-4">
           <div className="text-center mb-5">
@@ -129,18 +130,45 @@ export default function AboutPage() {
 
           <Row className="g-4">
             {about.team.members.map((member) => {
-              const imagePath = teamImages[member.id] || `/airo-assets/images/team/${member.id}.jpg`;
+              const imagePath = teamImages[member.id];
+              // Check if image exists and is not empty
+              const hasImage = imagePath && imagePath !== '' && !imagePath.includes('member1.svg');
+              // Get first letter of name for fallback
+              const firstLetter = member.name.charAt(0).toUpperCase();
+              // Get a color based on name for variety
+              const colors = ['#f5630d', '#168ef9', '#22c55e', '#8b5cf6', '#ec4899', '#14b8a6'];
+              const colorIndex = member.id.split('-').pop() % colors.length;
+              const bgColor = colors[colorIndex] || '#f5630d';
+              
               return (
                 <Col key={member.id} md={3} sm={6}>
                   <div className="text-center p-3 rounded-4 bg-light-soft card-hover">
-                    <img
-                      src={imagePath}
-                      alt={member.name}
-                      className="rounded-circle mb-3 border border-3 border-white shadow-sm"
-                      width="140"
-                      height="140"
-                      style={{ objectFit: 'cover' }}
-                    />
+                    {hasImage ? (
+                      <img
+                        src={imagePath}
+                        alt={member.name}
+                        className="rounded-circle mb-3 border border-3 border-white shadow-sm"
+                        width="140"
+                        height="140"
+                        style={{ objectFit: 'cover' }}
+                      />
+                    ) : (
+                      <div 
+                        className="rounded-circle mb-3 border border-3 border-white shadow-sm d-flex align-items-center justify-content-center mx-auto"
+                        style={{ 
+                          width: '140px', 
+                          height: '140px', 
+                          background: `linear-gradient(135deg, ${bgColor}33, ${bgColor}11)`,
+                          color: bgColor,
+                          fontSize: '3.5rem',
+                          fontWeight: 700,
+                          fontFamily: 'var(--font-heading)',
+                          border: `3px solid ${bgColor}22`
+                        }}
+                      >
+                        {firstLetter}
+                      </div>
+                    )}
                     <h5 className="font-heading fw-bold text-dark mb-1">{member.name}</h5>
                     <p className="text-primary-brand fw-semibold small mb-2">{member.role}</p>
                     <p className="text-muted small mb-0">{member.bio}</p>
