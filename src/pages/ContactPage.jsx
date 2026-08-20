@@ -9,7 +9,7 @@ const contactData = content.contact;
 const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT;
 
 // For debugging - log to see if it's loading correctly
-console.log('Formspree Endpoint:', FORMSPREE_ENDPOINT);
+// console.log('Formspree Endpoint:', FORMSPREE_ENDPOINT);
 
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState('idle');
