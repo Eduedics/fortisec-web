@@ -32,7 +32,7 @@ export default function ContactPage() {
   setErrorMessage('');
 
   // Log the endpoint to verify it's correct
-  console.log('Formspree Endpoint:', FORMSPREE_ENDPOINT);
+  // console.log('Formspree Endpoint:', FORMSPREE_ENDPOINT);
 
   if (!FORMSPREE_ENDPOINT) {
     setErrorMessage('Form configuration error. Please contact support.');
@@ -50,7 +50,7 @@ export default function ContactPage() {
       _subject: `New Contact Form Submission from ${formData.name}`
     };
 
-    console.log('Sending payload:', payload);
+    // console.log('Sending payload:', payload);
 
     const response = await fetch(FORMSPREE_ENDPOINT, {
       method: 'POST',
@@ -70,7 +70,8 @@ export default function ContactPage() {
       setTimeout(() => setFormStatus('idle'), 5000);
     } else {
       const data = await response.json();
-      console.error('Error response:', data);
+
+      // console.error('Error response:', data);
       setErrorMessage(data.error || `Error ${response.status}: Something went wrong.`);
       setFormStatus('error');
     }
