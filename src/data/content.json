@@ -23,10 +23,10 @@
       "CCTV Installation": "/assets/projectPhotos/solar.jpeg"
     },
     "team": {
-      "tm-1": "/assets/team/member1.svg",
-      "tm-2": "/assets/team/member1.svg",
-      "tm-3": "/assets/team/member1.svg",
-      "tm-4": "/assets/team/member1.svg"
+      "tm-1": "/assets/teamPhotos/kathinzi.jpg",
+      "tm-2": "/assets/teamPhotos/james muthusi.jpg",
+      "tm-3": "/assets/teamPhotos/japheth muthoka.jpg",
+      "tm-4": ""
     },
     "projects": {
       "proj-1": "/assets/projectPhotos/aviat.jpeg",
@@ -217,27 +217,27 @@
       "members": [
         {
           "id": "tm-1",
-          "name": "James Mwangi",
-          "role": "CEO & Founder",
-          "bio": "15+ years in telecommunications infrastructure across East Africa."
+          "name": "Festus Kathinzi",
+          "role": "Chief Executive Officer",
+          "bio": "20+ years in telecommunications infrastructure across East Africa. Festus leads Fortisec's strategic direction and client relationships. He is also the President of FORTISEC INNDOS LTD Africa."
         },
         {
           "id": "tm-2",
-          "name": "Grace Otieno",
-          "role": "CTO",
-          "bio": "Expert in network engineering and renewable energy integration."
+          "name": "James Muthusi",
+          "role": "Head of Projects",
+          "bio": "Oversees end-to-end project delivery across all service lines, ensuring quality, safety, and on-time completion."
         },
         {
           "id": "tm-3",
-          "name": "David Kamau",
-          "role": "Head of Projects",
-          "bio": "Project management specialist with a focus on large-scale infrastructure."
+          "name": "Japheth Muthoka",
+          "role": "Chief Technical Officer",
+          "bio": "Structural and civil engineer with deep expertise in mast design, fiber networks, and renewable energy integration."
         },
         {
           "id": "tm-4",
-          "name": "Amina Hassan",
-          "role": "Business Development",
-          "bio": "Strategic partnerships and business growth across the region."
+          "name": "Martin Mbithi",
+          "role": "Head of Business Development",
+          "bio": "Drives growth across Kenya and the wider East African region, building partnerships with MNOs, ISPs, and enterprise clients."
         }
       ]
     },
@@ -425,7 +425,8 @@
       { "id": "cs2", "label": "Fiber Cable Installation" },
       { "id": "cs3", "label": "WiFi Network Installation" },
       { "id": "cs4", "label": "Solar Power Systems" },
-      { "id": "cs5", "label": "Wind Turbine Installation" }
+      { "id": "cs5", "label": "Wind Turbine Installation" },
+      { "id": "cs6", "label": "Telecommunications" }
     ]
   }
 }
