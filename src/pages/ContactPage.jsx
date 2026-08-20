@@ -7,7 +7,7 @@ const contactData = content.contact;
 // REPLACE THIS WITH YOUR FORMSPREE ENDPOINT
 // Get your endpoint from: https://formspree.io/
 // Replace the hardcoded endpoint with:
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/your-form-id';
+const FORMSPREE_ENDPOINT = import.meta.env.FORMSPREE_ENDPOINT;
 
 export default function ContactPage() {
   const [formStatus, setFormStatus] = useState('idle');
