@@ -936,3 +936,49 @@ a:hover {
   opacity: 1;
   transform: perspective(1000px) rotateY(0deg) translateY(0);
 }
+
+// ============================================
+// TEAM AVATAR FALLBACK STYLES
+// ============================================
+
+.team-avatar-fallback {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 3.5rem;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  }
+}
+
+// Different color variants
+.team-avatar-color-1 {
+  background: linear-gradient(135deg, rgba(245, 99, 13, 0.2), rgba(245, 99, 13, 0.08));
+  color: #f5630d;
+}
+
+.team-avatar-color-2 {
+  background: linear-gradient(135deg, rgba(22, 142, 249, 0.2), rgba(22, 142, 249, 0.08));
+  color: #168ef9;
+}
+
+.team-avatar-color-3 {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(34, 197, 94, 0.08));
+  color: #22c55e;
+}
+
+.team-avatar-color-4 {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(139, 92, 246, 0.08));
+  color: #8b5cf6;
+}
