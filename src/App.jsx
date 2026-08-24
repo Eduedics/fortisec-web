@@ -1,5 +1,6 @@
 import { HelmetProvider } from 'react-helmet-async';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Layout from './components/layout/Layout';
 import ScrollToTop from './components/common/ScrollToTop';
 import HomePage from './pages/HomePage';
@@ -26,6 +27,7 @@ function App() {
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </Layout>
+        <SpeedInsights />
       </BrowserRouter>
     </HelmetProvider>
   );
