@@ -108,12 +108,12 @@ export default function HomePage() {
                     <div className="service-overlay">
                       <h3 className="h5 font-heading text-white fw-bold mb-2">{service.title}</h3>
                       <p className="text-white-50 small mb-3">{service.description}</p>
-                      <Link to={service.href} className="text-primary-brand fw-semibold text-decoration-none d-inline-flex align-items-center">
-                        Learn More
-                        <svg className="ms-1.5" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                        </svg>
-                      </Link>
+                      <Link to={`/services#${service.id}`} className="text-primary-brand fw-semibold text-decoration-none d-inline-flex align-items-center">
+                      Learn More
+                      <svg className="ms-1.5" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </Link>
                     </div>
                   </div>
                 </Col>
