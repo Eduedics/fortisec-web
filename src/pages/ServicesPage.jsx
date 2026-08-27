@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import content from '../data/content.json';
 
@@ -37,6 +37,8 @@ const IndustryIcons = {
 
 export default function ServicesPage() {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
+  const location = useLocation();
+  const servicesRef = useRef(null);
   
   const services = servicesData.services;
   const hasMore = visibleCount < services.length;
@@ -50,6 +52,19 @@ export default function ServicesPage() {
     setVisibleCount(ITEMS_PER_PAGE);
     document.getElementById('services-list')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Handle scroll to service section when navigating from homepage
+  useEffect(() => {
+    if (location.hash) {
+      const targetId = location.hash.replace('#', '');
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        setTimeout(() => {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+      }
+    }
+  }, [location]);
 
   return (
     <>
@@ -136,111 +151,114 @@ export default function ServicesPage() {
               })}
             </Row>
 
-            {/* Divider */}
             <hr className="my-5" style={{ borderColor: 'var(--border-color)' }} />
           </Container>
         </section>
       )}
 
-      {/* Services Grid */}
-      <section id="services-list" className="py-5 bg-light-soft" style={{ scrollMarginTop: '80px' }}>
-        <Container>
-          <div className="text-center mb-5">
-            <span className="badge-pill-orange">Our Services</span>
-            <h2 className="display-5 font-heading fw-bold mt-2">What We Offer</h2>
-            <p className="text-muted fs-5">End-to-end telecommunications and energy infrastructure solutions</p>
-          </div>
-
-          <Row className="g-4">
-            {visibleServices.map((service) => {
-              const imagePath = serviceImages[service.id] || `${service.image}.jpg`;
-              return (
-                <Col key={service.id} lg={4} md={6}>
-                  <div className="service-card-modern bg-white rounded-4 overflow-hidden shadow-sm h-100 card-hover">
-                    <div className="service-image-container" style={{ height: '220px', position: 'relative', overflow: 'hidden' }}>
+      {/* Services List - Alternate Layout */}
+      <section id="services-list" ref={servicesRef} style={{ scrollMarginTop: '80px' }}>
+        {services.map((service, index) => {
+          const isEven = index % 2 === 0;
+          const imagePath = serviceImages[service.id] || `${service.image}.jpg`;
+          const bgClass = isEven ? 'bg-white' : 'bg-light-soft';
+          
+          return (
+            <section 
+              key={service.id} 
+              id={service.anchor} 
+              className={`py-5 ${bgClass}`}
+              style={{ scrollMarginTop: '80px' }}
+            >
+              <Container className="py-4">
+                <Row className={`align-items-center g-5 ${isEven ? '' : 'flex-row-reverse'}`}>
+                  {/* Image Column - with carousel on mobile */}
+                  <Col lg={6}>
+                    <div className="service-image-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
                       <img
                         src={imagePath}
                         alt={service.title}
                         className="w-100 h-100 object-fit-cover"
-                        style={{ objectFit: 'cover' }}
+                        style={{ minHeight: '300px', maxHeight: '420px', objectFit: 'cover' }}
                       />
-                      <span className="badge-pill-orange position-absolute top-3 start-3 bg-white/90 text-primary-brand">
-                        {service.tagline}
-                      </span>
+                      {/* Small border bottom with color */}
+                      <div className="position-absolute bottom-0 start-0 end-0" style={{ height: '4px', background: 'rgb(249, 234, 255)' }}></div>
                     </div>
-                    <div className="p-4">
-                      <h3 className="h5 font-heading fw-bold text-dark mb-2">{service.title}</h3>
-                      <p className="text-muted small mb-3" style={{ lineHeight: 1.6 }}>
-                        {service.description}
-                      </p>
-                      <ul className="list-unstyled small mb-3">
-                        {service.capabilities.slice(0, 3).map((cap) => (
-                          <li key={cap} className="mb-1 d-flex align-items-start">
-                            <svg className="text-primary-brand me-2 mt-1 shrink-0" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                  </Col>
+
+                  {/* Content Column */}
+                  <Col lg={6}>
+                    <div className="service-content">
+                      <span className="badge-pill-orange mb-3">{service.tagline}</span>
+                      <h2 className="display-6 font-heading fw-bold text-dark mt-2 mb-4">{service.title}</h2>
+                      {/* Divider */}
+                      <div className="w-75 mb-4" style={{ height: '2px', background: 'var(--primary-color)', opacity: 0.3 }}></div>
+                      <p className="text-muted fs-6 mb-4" style={{ lineHeight: 1.7 }}>{service.description}</p>
+                      <ul className="list-unstyled mb-4">
+                        {service.capabilities.map((cap) => (
+                          <li key={cap} className="mb-2.5 d-flex align-items-start text-dark font-sans">
+                            <svg className="text-primary-brand me-3 mt-1 shrink-0" width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
-                            <span className="text-muted">{cap}</span>
+                            <span>{cap}</span>
                           </li>
                         ))}
-                        {service.capabilities.length > 3 && (
-                          <li className="text-primary-brand small fw-semibold">+ {service.capabilities.length - 3} more capabilities</li>
-                        )}
                       </ul>
-                      <Button 
-                        as={Link} 
-                        to="/contact" 
-                        variant="outline-primary" 
-                        size="sm" 
-                        className="w-100 rounded-pill fw-semibold"
-                      >
-                        Enquire Now
-                        <svg className="ms-1" width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <Button as={Link} to="/contact" variant="primary" className="px-4 py-2.5 rounded fw-semibold">
+                        Enquire About This Service
+                        <svg className="ms-2" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                       </Button>
                     </div>
-                  </div>
-                </Col>
-              );
-            })}
-          </Row>
-
-          {/* Load More / Show Less */}
-          {(hasMore || visibleCount > ITEMS_PER_PAGE) && (
-            <div className="text-center mt-5 pt-3">
-              <div className="d-flex flex-wrap justify-content-center gap-3">
-                {hasMore && (
-                  <Button 
-                    onClick={handleLoadMore}
-                    variant="primary" 
-                    className="px-5 py-2.5 rounded-pill fw-semibold"
-                  >
-                    Load More Services
-                    <svg className="ms-2" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                  </Button>
-                )}
-                {visibleCount > ITEMS_PER_PAGE && (
-                  <Button 
-                    onClick={handleShowLess}
-                    variant="outline-secondary" 
-                    className="px-5 py-2.5 rounded-pill fw-semibold"
-                  >
-                    Show Less
-                    <svg className="ms-2" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                    </svg>
-                  </Button>
-                )}
-              </div>
-              <p className="text-muted small mt-3">
-                Showing {Math.min(visibleCount, services.length)} of {services.length} services
-              </p>
-            </div>
-          )}
-        </Container>
+                  </Col>
+                </Row>
+              </Container>
+            </section>
+          );
+        })}
       </section>
+
+      {/* Load More / Show Less */}
+      {(hasMore || visibleCount > ITEMS_PER_PAGE) && (
+        <section className="py-5 bg-white border-top border-light">
+          <Container>
+            <Row className="justify-content-center text-center">
+              <Col lg={6}>
+                <div className="d-flex flex-wrap justify-content-center gap-3">
+                  {hasMore && (
+                    <Button 
+                      onClick={handleLoadMore}
+                      variant="outline-primary" 
+                      className="px-5 py-2.5 rounded-pill fw-semibold"
+                    >
+                      Load More Services
+                      <svg className="ms-2" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                      </svg>
+                    </Button>
+                  )}
+                  {visibleCount > ITEMS_PER_PAGE && (
+                    <Button 
+                      onClick={handleShowLess}
+                      variant="outline-secondary" 
+                      className="px-5 py-2.5 rounded-pill fw-semibold"
+                    >
+                      Show Less
+                      <svg className="ms-2" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                      </svg>
+                    </Button>
+                  )}
+                </div>
+                <p className="text-muted small mt-3">
+                  Showing {Math.min(visibleCount, services.length)} of {services.length} services
+                </p>
+              </Col>
+            </Row>
+          </Container>
+        </section>
+      )}
 
       {/* CTA */}
       <section className="py-5 bg-navy text-white">
