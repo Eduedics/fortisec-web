@@ -8,7 +8,7 @@
 // 1. DESIGN TOKENS & CSS VARIABLES
 // ============================================
 :root {
-  /* Brand Core Colors (from Fortisec_Telecoms) */
+  /* Brand Core Colors */
   --primary-color: #f5630d;
   --primary-hover: #ea580c;
   --primary-light: rgba(245, 99, 13, 0.12);
@@ -20,7 +20,7 @@
   --accent-color: #168ef9;
   --accent-foreground: #ffffff;
 
-  /* Brand Navy (Header, Footer, Dark Sections) */
+  /* Brand Navy */
   --navy-color: #0e1726;
   --navy-light: #1e293b;
   --navy-border: rgba(255, 255, 255, 0.12);
@@ -34,17 +34,17 @@
   --text-muted: #64748b;
   --border-color: #e2e8f0;
 
-  /* Typography Fonts */
+  /* Typography */
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-heading: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Monaco, "Cascadia Code", monospace;
 
-  /* Geometry & Radius */
+  /* Geometry */
   --radius: 0.5rem;
   --radius-button: calc(var(--radius) - 2px);
   --radius-card: 1rem;
 
-  /* Box Shadows */
+  /* Shadows */
   --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
@@ -90,10 +90,10 @@ a:hover {
 }
 
 // ============================================
-// 3. BOOTSTRAP OVERRIDES & CUSTOM UTILITIES
+// 3. BOOTSTRAP OVERRIDES & UTILITIES
 // ============================================
 
-/* Primary Button Styling */
+/* Buttons */
 .btn-primary {
   background-color: var(--primary-color) !important;
   border-color: var(--primary-color) !important;
@@ -104,7 +104,9 @@ a:hover {
   transition: all 0.25s ease;
   box-shadow: 0 2px 8px rgba(245, 99, 13, 0.3);
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: var(--primary-hover) !important;
     border-color: var(--primary-hover) !important;
     box-shadow: 0 4px 14px rgba(245, 99, 13, 0.45);
@@ -118,7 +120,9 @@ a:hover {
   background-color: transparent !important;
   font-weight: 600;
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: var(--primary-color) !important;
     color: var(--primary-foreground) !important;
   }
@@ -144,7 +148,9 @@ a:hover {
   color: rgba(255, 255, 255, 0.9) !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
 
-  &:hover, &:focus, &:active {
+  &:hover,
+  &:focus,
+  &:active {
     background-color: rgba(255, 255, 255, 0.15) !important;
     border-color: rgba(255, 255, 255, 0.6) !important;
     color: #ffffff !important;
@@ -161,7 +167,7 @@ a:hover {
 }
 
 .bg-light-soft {
-  background-color: #f8fafc !important;
+  background-color:  hsl(23deg 37.89% 84.62%);
 }
 
 /* Text Utilities */
@@ -197,7 +203,7 @@ a:hover {
   min-height: 80vh;
 }
 
-/* Section Header Badges */
+/* Badges */
 .badge-pill-orange {
   display: inline-block;
   padding: 0.5rem 1.25rem;
@@ -228,7 +234,7 @@ a:hover {
 .text-highlight-orange {
   color: var(--primary-color);
   position: relative;
-  
+
   &::after {
     content: '';
     position: absolute;
@@ -289,7 +295,7 @@ a:hover {
 }
 
 // ============================================
-// 5. NAVBAR STYLING (NAVY THEME)
+// 5. NAVBAR
 // ============================================
 .navbar-custom {
   background-color: rgba(14, 23, 38, 0.92);
@@ -321,51 +327,45 @@ a:hover {
     }
   }
 }
-// ============================================
-// FOOTER ENHANCEMENTS
-// ============================================
 
+// ============================================
+// 6. FOOTER
+// ============================================
 footer {
-  // Smooth text rendering
   .text-navy-muted {
     font-weight: 400;
     letter-spacing: 0.01em;
   }
 
-  // Link hover transition
   .hover-text-primary {
     transition: color 0.2s ease;
-    
+
     &:hover {
       color: var(--primary-color) !important;
     }
   }
 
-  // Social icons
   .transition-colors {
     transition: background-color 0.25s ease, transform 0.25s ease;
-    
+
     &:hover {
       transform: translateY(-2px);
     }
   }
 
-  // List items
   ul li {
     transition: transform 0.2s ease;
-    
+
     &:hover {
       transform: translateX(2px);
     }
   }
 
-  // Heading styles
   .font-heading {
     letter-spacing: 0.08em;
     font-size: 0.7rem;
   }
 
-  // Contact items
   .d-flex.align-items-start {
     svg {
       flex-shrink: 0;
@@ -374,30 +374,15 @@ footer {
   }
 }
 
-// Responsive adjustments
-@media (max-width: 768px) {
-  footer {
-    .text-navy-muted.small {
-      font-size: 0.8rem;
-    }
-    
-    .gap-4 {
-      gap: 1.5rem !important;
-    }
-  }
-}
 // ============================================
-// 6. TYPOGRAPHY - INDUSTRY STANDARD SIZES
+// 7. TYPOGRAPHY - SCALABLE SIZES
 // ============================================
-
-// Hero Title - Large and Bold
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
-// Hero Subtitle
 .hero-subtitle {
   font-size: clamp(1rem, 1.2vw, 1.25rem);
   max-width: 620px;
@@ -405,34 +390,33 @@ footer {
   color: rgba(255, 255, 255, 0.7);
 }
 
-// Section Titles
 .section-title {
   font-size: clamp(2rem, 3vw, 2.75rem);
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
-// Section Subtitles
 .section-subtitle {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   max-width: 560px;
   line-height: 1.6;
 }
 
-// Hero Buttons
 .hero-btn {
   font-size: clamp(0.9rem, 1vw, 1.05rem);
   padding: 0.75rem 2rem !important;
 }
 
-// CTA Button
 .cta-btn {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   padding: 0.85rem 2.5rem !important;
 }
+// ============================================
+// 8. service section 
+// ============================================
 
 // ============================================
-// 7. HERO SECTION
+// 8. HERO SECTION
 // ============================================
 .hero-section {
   position: relative;
@@ -441,7 +425,7 @@ footer {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  
+
   .hero-overlay {
     position: absolute;
     inset: 0;
@@ -457,21 +441,21 @@ footer {
 }
 
 // ============================================
-// 8. STATS BAR - YELLOW BACKGROUND
+// 9. STATS BAR
 // ============================================
 .stats-bar {
   background-color: #f5630d !important;
   padding: 0.2rem 0;
-  
+
   .stat-counter {
     padding: 1.5rem 1rem;
     text-align: center;
     border-right: 1px solid rgba(28, 25, 23, 0.12);
-    
+
     &:last-child {
       border-right: none;
     }
-    
+
     .stat-number {
       font-family: var(--font-heading) !important;
       font-size: clamp(1.8rem, 2.5vw, 2.8rem);
@@ -492,7 +476,7 @@ footer {
 }
 
 // ============================================
-// 9. NAVY DIVIDERS
+// 10. NAVY DIVIDERS
 // ============================================
 .navy-divider-top {
   position: relative;
@@ -511,7 +495,7 @@ footer {
 }
 
 // ============================================
-// 10. SIGNAL ANIMATION - CTA SECTION
+// 11. SIGNAL ANIMATION
 // ============================================
 .signal-animation {
   position: absolute;
@@ -573,7 +557,7 @@ footer {
 }
 
 // ============================================
-// 11. SERVICE CARD - OVERLAY STYLE
+// 12. SERVICE CARDS (Homepage Overlay)
 // ============================================
 .service-card {
   position: relative;
@@ -639,16 +623,16 @@ footer {
     display: inline-flex;
     align-items: center;
     transition: gap 0.3s ease;
-    
+
     &:hover {
       gap: 0.25rem;
       color: #f97316;
     }
-    
+
     svg {
       transition: transform 0.3s ease;
     }
-    
+
     &:hover svg {
       transform: translateX(4px);
     }
@@ -656,7 +640,118 @@ footer {
 }
 
 // ============================================
-// 12. CARD HOVER
+// 13. SERVICE PAGE - ALTERNATE LAYOUT
+// ============================================
+
+/* Image Wrapper */
+.service-image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+  background: var(--navy-color);
+  box-shadow: var(--shadow-lg);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: 300px;
+    max-height: 420px;
+  }
+
+  &:hover img {
+    transform: scale(1.03);
+  }
+
+  .service-image-border {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgb(249, 234, 255);
+  }
+}
+
+/* Content Divider */
+.service-content {
+  .service-divider {
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+    opacity: 0.4;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+  }
+}
+
+/* Alternate Backgrounds */
+.bg-service-even {
+  background-color: #ffffff;
+}
+
+.bg-service-odd {
+  background-color: #f8fafc;
+}
+
+// ============================================
+// 14. SERVICE CARDS (Services Page Grid)
+// ============================================
+.service-card-modern {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  overflow: hidden;
+  height: 100%;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: rgba(245, 99, 13, 0.25);
+  }
+
+  .service-image-container {
+    position: relative;
+    overflow: hidden;
+    background: var(--navy-color);
+    height: 220px;
+
+    img {
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .badge-pill-orange {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background-color: rgba(255, 255, 255, 0.92) !important;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  &:hover .service-image-container img {
+    transform: scale(1.08);
+  }
+
+  .btn-outline-primary {
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(245, 99, 13, 0.3);
+    }
+  }
+}
+
+// ============================================
+// 15. CARD HOVER (Reusable)
 // ============================================
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
@@ -671,9 +766,57 @@ footer {
 }
 
 // ============================================
-// 13. FORM CONTROL STYLING
+// 16. INDUSTRY CARDS
 // ============================================
-.form-control, .form-select {
+.industry-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-card);
+  background: var(--bg-card);
+  padding: 2rem 1.5rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--primary-color);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+
+  .industry-icon-wrapper {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    svg {
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  &:hover .industry-icon-wrapper svg {
+    transform: scale(1.1) rotate(-5deg);
+  }
+
+  h4 {
+    font-size: 1.1rem;
+    letter-spacing: -0.01em;
+  }
+}
+
+// ============================================
+// 17. FORM CONTROLS
+// ============================================
+.form-control,
+.form-select {
   border-color: var(--border-color);
   border-radius: var(--radius);
   padding: 0.75rem 1rem;
@@ -686,109 +829,7 @@ footer {
 }
 
 // ============================================
-// 14. INDUSTRY CARDS
-// ============================================
-.industry-card {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-card);
-  background: var(--bg-card);
-  padding: 2rem 1.5rem;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 3px;
-    background: var(--primary-color);
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  
-  &:hover::before {
-    opacity: 1;
-  }
-  
-  .industry-icon-wrapper {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    
-    svg {
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-  }
-  
-  &:hover .industry-icon-wrapper svg {
-    transform: scale(1.1) rotate(-5deg);
-  }
-  
-  h4 {
-    font-size: 1.1rem;
-    letter-spacing: -0.01em;
-  }
-}
-
-// ============================================
-// 15. SERVICE CARD MODERN (For Services Page)
-// ============================================
-.service-card-modern {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-card);
-  background: var(--bg-card);
-  overflow: hidden;
-  height: 100%;
-  
-  &:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-xl);
-    border-color: rgba(245, 99, 13, 0.25);
-  }
-  
-  .service-image-container {
-    position: relative;
-    overflow: hidden;
-    background: var(--navy-color);
-    height: 220px;
-    
-    img {
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    
-    .badge-pill-orange {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background-color: rgba(255, 255, 255, 0.92) !important;
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    }
-  }
-  
-  &:hover .service-image-container img {
-    transform: scale(1.08);
-  }
-  
-  .btn-outline-primary {
-    transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 4px 14px rgba(245, 99, 13, 0.3);
-    }
-  }
-}
-
-// ============================================
-// 16. POSITIONING UTILITIES
+// 18. POSITIONING UTILITIES
 // ============================================
 .top-3 {
   top: 12px !important;
@@ -799,165 +840,10 @@ footer {
 }
 
 // ============================================
-// 17. RESPONSIVE BREAKPOINTS
-// ============================================
-@media (max-width: 992px) {
-  .hero-section {
-    min-height: 75vh;
-  }
-  
-  .hero-title {
-    font-size: clamp(2rem, 4vw, 3rem) !important;
-  }
-  
-  .stats-bar .stat-counter .stat-number {
-    font-size: 2.2rem;
-  }
-  
-  .service-card-modern .service-image-container {
-    height: 200px !important;
-  }
-
-  .signal-animation {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 65vh;
-  }
-  
-  .hero-title {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
-  }
-  
-  .hero-subtitle {
-    font-size: clamp(0.9rem, 2vw, 1rem) !important;
-  }
-  
-  .section-title {
-    font-size: clamp(1.5rem, 3vw, 2rem) !important;
-  }
-  
-  .section-subtitle {
-    font-size: clamp(0.85rem, 1.5vw, 0.95rem) !important;
-  }
-  
-  .stats-bar {
-    padding: 0.25rem 0;
-  }
-  
-  .stats-bar .stat-counter {
-    padding: 0.75rem 0.5rem;
-    border-right: none;
-    border-bottom: 1px solid rgba(28, 25, 23, 0.08);
-    
-    &:last-child {
-      border-bottom: none;
-    }
-    
-    &:nth-child(odd) {
-      border-right: 1px solid rgba(28, 25, 23, 0.08);
-    }
-  }
-  
-  .stats-bar .stat-counter .stat-number {
-    font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
-  }
-  
-  .stats-bar .stat-counter .stat-label {
-    font-size: clamp(0.5rem, 1.2vw, 0.65rem) !important;
-  }
-
-  .service-card {
-    min-height: 280px;
-  }
-
-  .service-card .service-image {
-    min-height: 240px;
-  }
-
-  .service-card-modern .service-image-container {
-    height: 180px !important;
-  }
-  
-  .service-card-modern .p-4 {
-    padding: 1.25rem !important;
-  }
-
-  .industry-card {
-    padding: 1.5rem 1.25rem;
-    
-    .industry-icon-wrapper {
-      width: 60px !important;
-      height: 60px !important;
-      
-      svg {
-        width: 32px !important;
-        height: 32px !important;
-      }
-    }
-    
-    h4 {
-      font-size: 1rem;
-    }
-  }
-
-  .navy-divider-top,
-  .navy-divider-bottom {
-    display: none !important;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-section {
-    min-height: 60vh;
-  }
-  
-  .hero-title {
-    font-size: clamp(1.5rem, 4vw, 2rem) !important;
-  }
-  
-  .hero-btn {
-    font-size: clamp(0.8rem, 2vw, 0.9rem) !important;
-    padding: 0.6rem 1.5rem !important;
-  }
-  
-  .cta-btn {
-    font-size: clamp(0.85rem, 2vw, 0.95rem) !important;
-    padding: 0.7rem 1.8rem !important;
-  }
-  
-  .service-card {
-    min-height: 240px;
-  }
-  
-  .service-card .service-image {
-    min-height: 200px;
-  }
-
-  .stats-bar .stat-counter {
-    padding: 0.5rem 0.25rem;
-    
-    .stat-number {
-      font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
-    }
-    
-    .stat-label {
-      font-size: clamp(0.45rem, 1vw, 0.6rem) !important;
-    }
-  }
-  
-  .service-card-modern .service-image-container {
-    height: 200px !important;
-  }
-}
-
-// ============================================
-// CARD FLIP ON SCROLL
+// 19. SCROLL REVEAL ANIMATIONS
 // ============================================
 
+/* Base Reveal */
 .scroll-reveal-flip-card {
   opacity: 0;
   transform: perspective(1000px) rotateY(15deg) rotateX(5deg) translateY(30px);
@@ -965,14 +851,13 @@ footer {
   will-change: transform, opacity;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+
+  &.visible {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0);
+  }
 }
 
-.scroll-reveal-flip-card.visible {
-  opacity: 1;
-  transform: perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0);
-}
-
-// Different flip directions
 .scroll-reveal-flip-left {
   opacity: 0;
   transform: perspective(1000px) rotateY(15deg) translateY(20px);
@@ -980,11 +865,11 @@ footer {
   will-change: transform, opacity;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-}
 
-.scroll-reveal-flip-left.visible {
-  opacity: 1;
-  transform: perspective(1000px) rotateY(0deg) translateY(0);
+  &.visible {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) translateY(0);
+  }
 }
 
 .scroll-reveal-flip-right {
@@ -994,17 +879,18 @@ footer {
   will-change: transform, opacity;
   transform-style: preserve-3d;
   backface-visibility: hidden;
-}
 
-.scroll-reveal-flip-right.visible {
-  opacity: 1;
-  transform: perspective(1000px) rotateY(0deg) translateY(0);
+  &.visible {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg) translateY(0);
+  }
 }
 
 // ============================================
-// TEAM AVATAR FALLBACK STYLES
+// 20. TEAM SECTION
 // ============================================
 
+/* Avatar Fallback */
 .team-avatar-fallback {
   width: 140px;
   height: 140px;
@@ -1019,14 +905,14 @@ footer {
   border: 3px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  
+
   &:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
   }
 }
 
-// Different color variants
+/* Avatar Color Variants */
 .team-avatar-color-1 {
   background: linear-gradient(135deg, rgba(245, 99, 13, 0.2), rgba(245, 99, 13, 0.08));
   color: #f5630d;
@@ -1047,45 +933,218 @@ footer {
   color: #8b5cf6;
 }
 
-// ============================================
-// TEAM CARDS - EQUAL HEIGHT
-// ============================================
-
-// Card hover effect
-.card-hover {
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  border: 1px solid transparent;
-  border-radius: var(--radius-card);
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(245, 99, 13, 0.2);
-  }
-}
-
-// Team card specific
+/* Team Cards */
 .team-card {
   height: 100%;
   display: flex;
   flex-direction: column;
-  
+
   .team-avatar-wrapper {
     flex-shrink: 0;
   }
-  
+
   .team-content {
     flex: 1;
     display: flex;
     flex-direction: column;
   }
-  
+
   .team-bio {
     flex: 1;
   }
 }
 
-// For Firefox and older browsers
+// ============================================
+// 21. RESPONSIVE BREAKPOINTS
+// ============================================
+
+/* Tablet & Small Laptops */
+@media (max-width: 992px) {
+  .hero-section {
+    min-height: 75vh;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 4vw, 3rem) !important;
+  }
+
+  .stats-bar .stat-counter .stat-number {
+    font-size: 2.2rem;
+  }
+
+  .service-card-modern .service-image-container {
+    height: 200px !important;
+  }
+
+  .signal-animation {
+    display: none !important;
+  }
+}
+
+/* Mobile Landscape & Tablets */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: 65vh;
+  }
+
+  .hero-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem) !important;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 2vw, 1rem) !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 3vw, 2rem) !important;
+  }
+
+  .section-subtitle {
+    font-size: clamp(0.85rem, 1.5vw, 0.95rem) !important;
+  }
+
+  .stats-bar {
+    padding: 0.25rem 0;
+
+    .stat-counter {
+      padding: 0.75rem 0.5rem;
+      border-right: none;
+      border-bottom: 1px solid rgba(28, 25, 23, 0.08);
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:nth-child(odd) {
+        border-right: 1px solid rgba(28, 25, 23, 0.08);
+      }
+
+      .stat-number {
+        font-size: clamp(1.2rem, 3vw, 1.8rem) !important;
+      }
+
+      .stat-label {
+        font-size: clamp(0.5rem, 1.2vw, 0.65rem) !important;
+      }
+    }
+  }
+
+  .service-card {
+    min-height: 280px;
+
+    .service-image {
+      min-height: 240px;
+    }
+  }
+
+  .service-card-modern .service-image-container {
+    height: 180px !important;
+  }
+
+  .service-card-modern .p-4 {
+    padding: 1.25rem !important;
+  }
+
+  .service-image-wrapper {
+    img {
+      min-height: 220px !important;
+      max-height: 280px !important;
+    }
+  }
+
+  .service-content .service-divider {
+    width: 40px;
+  }
+
+  .industry-card {
+    padding: 1.5rem 1.25rem;
+
+    .industry-icon-wrapper {
+      width: 60px !important;
+      height: 60px !important;
+
+      svg {
+        width: 32px !important;
+        height: 32px !important;
+      }
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
+  }
+
+  .navy-divider-top,
+  .navy-divider-bottom {
+    display: none !important;
+  }
+
+  footer {
+    .text-navy-muted.small {
+      font-size: 0.8rem;
+    }
+
+    .gap-4 {
+      gap: 1.5rem !important;
+    }
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 576px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+
+  .hero-title {
+    font-size: clamp(1.5rem, 4vw, 2rem) !important;
+  }
+
+  .hero-btn {
+    font-size: clamp(0.8rem, 2vw, 0.9rem) !important;
+    padding: 0.6rem 1.5rem !important;
+  }
+
+  .cta-btn {
+    font-size: clamp(0.85rem, 2vw, 0.95rem) !important;
+    padding: 0.7rem 1.8rem !important;
+  }
+
+  .service-card {
+    min-height: 240px;
+
+    .service-image {
+      min-height: 200px;
+    }
+  }
+
+  .stats-bar .stat-counter {
+    padding: 0.5rem 0.25rem;
+
+    .stat-number {
+      font-size: clamp(1rem, 2.5vw, 1.5rem) !important;
+    }
+
+    .stat-label {
+      font-size: clamp(0.45rem, 1vw, 0.6rem) !important;
+    }
+  }
+
+  .service-card-modern .service-image-container {
+    height: 200px !important;
+  }
+
+  .service-image-wrapper {
+    img {
+      min-height: 180px !important;
+      max-height: 220px !important;
+    }
+  }
+}
+
+// ============================================
+// 22. FIREFOX & OLDER BROWSERS SUPPORT
+// ============================================
 @supports not (display: flex) {
   .team-card {
     display: table;

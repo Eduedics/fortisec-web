@@ -35,6 +35,63 @@ const IndustryIcons = {
   )
 };
 
+// Carousel Component for Service Images
+function ServiceCarousel({ images, alt }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideCount = images.length;
+
+  useEffect(() => {
+    if (slideCount <= 1) return;
+    
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slideCount);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [slideCount]);
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
+  return (
+    <div className="service-carousel-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
+      <div className="service-carousel-track" style={{ 
+        transform: `translateX(-${currentSlide * 100}%)`,
+        transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+      }}>
+        {images.map((img, index) => (
+          <div key={index} className="service-carousel-slide">
+            <img
+              src={img}
+              alt={`${alt} - ${index + 1}`}
+              className="w-100 h-100 object-fit-cover"
+              style={{ minHeight: '300px', maxHeight: '420px', objectFit: 'cover' }}
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* Dot Indicators */}
+      {slideCount > 1 && (
+        <div className="service-carousel-dots position-absolute bottom-3 start-50 translate-middle-x d-flex gap-2">
+          {images.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`service-carousel-dot ${currentSlide === index ? 'active' : ''}`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Bottom Border */}
+      <div className="position-absolute bottom-0 start-0 end-0" style={{ height: '4px', background: 'rgb(249, 234, 255)' }}></div>
+    </div>
+  );
+}
+
 export default function ServicesPage() {
   const [visibleCount, setVisibleCount] = useState(ITEMS_PER_PAGE);
   const location = useLocation();
@@ -42,7 +99,7 @@ export default function ServicesPage() {
   
   const services = servicesData.services;
   const hasMore = visibleCount < services.length;
-  const visibleServices = services.slice(0, visibleCount);
+  // const visibleServices = services.slice(0, visibleCount);
 
   const handleLoadMore = () => {
     setVisibleCount(prev => Math.min(prev + ITEMS_PER_PAGE, services.length));
@@ -65,6 +122,14 @@ export default function ServicesPage() {
       }
     }
   }, [location]);
+
+  // Generate carousel images for each service
+  const getCarouselImages = (serviceId) => {
+    // You can customize this array with multiple images per service
+    const baseImage = serviceImages[serviceId] || `${serviceId}.jpg`;
+    // For demo, using the same image with different angles or you can add more images
+    return [baseImage];
+  };
 
   return (
     <>
@@ -160,7 +225,7 @@ export default function ServicesPage() {
       <section id="services-list" ref={servicesRef} style={{ scrollMarginTop: '80px' }}>
         {services.map((service, index) => {
           const isEven = index % 2 === 0;
-          const imagePath = serviceImages[service.id] || `${service.image}.jpg`;
+          const carouselImages = getCarouselImages(service.id);
           const bgClass = isEven ? 'bg-white' : 'bg-light-soft';
           
           return (
@@ -172,18 +237,21 @@ export default function ServicesPage() {
             >
               <Container className="py-4">
                 <Row className={`align-items-center g-5 ${isEven ? '' : 'flex-row-reverse'}`}>
-                  {/* Image Column - with carousel on mobile */}
+                  {/* Image Column - with Carousel */}
                   <Col lg={6}>
-                    <div className="service-image-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
-                      <img
-                        src={imagePath}
-                        alt={service.title}
-                        className="w-100 h-100 object-fit-cover"
-                        style={{ minHeight: '300px', maxHeight: '420px', objectFit: 'cover' }}
-                      />
-                      {/* Small border bottom with color */}
-                      <div className="position-absolute bottom-0 start-0 end-0" style={{ height: '4px', background: 'rgb(249, 234, 255)' }}></div>
-                    </div>
+                    {carouselImages.length > 1 ? (
+                      <ServiceCarousel images={carouselImages} alt={service.title} />
+                    ) : (
+                      <div className="service-image-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
+                        <img
+                          src={carouselImages[0]}
+                          alt={service.title}
+                          className="w-100 h-100 object-fit-cover"
+                          style={{ minHeight: '300px', maxHeight: '420px', objectFit: 'cover' }}
+                        />
+                        <div className="position-absolute bottom-0 start-0 end-0" style={{ height: '4px', background: ' #f5630d' }}></div>
+                      </div>
+                    )}
                   </Col>
 
                   {/* Content Column */}
@@ -191,8 +259,7 @@ export default function ServicesPage() {
                     <div className="service-content">
                       <span className="badge-pill-orange mb-3">{service.tagline}</span>
                       <h2 className="display-6 font-heading fw-bold text-dark mt-2 mb-4">{service.title}</h2>
-                      {/* Divider */}
-                      <div className="w-75 mb-4" style={{ height: '2px', background: 'var(--primary-color)', opacity: 0.3 }}></div>
+                      <div className="service-divider"></div>
                       <p className="text-muted fs-6 mb-4" style={{ lineHeight: 1.7 }}>{service.description}</p>
                       <ul className="list-unstyled mb-4">
                         {service.capabilities.map((cap) => (
