@@ -167,7 +167,7 @@ a:hover {
 }
 
 .bg-light-soft {
-  background-color:  hsl(23deg 37.89% 84.62%);
+  background-color: rgb(249, 234, 225);
 }
 
 /* Text Utilities */
@@ -411,20 +411,14 @@ footer {
   font-size: clamp(0.95rem, 1.1vw, 1.1rem);
   padding: 0.85rem 2.5rem !important;
 }
-// ============================================
-// 8. service section 
-// ============================================
 
 // ============================================
 // 8. HERO SECTION
 // ============================================
 .hero-section {
   position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
+  overflow: hidden;
+  min-height: 52vh;
 
   .hero-overlay {
     position: absolute;
@@ -435,8 +429,8 @@ footer {
 
   .hero-content {
     position: relative;
-    z-index: 2;
-    width: 100%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
 }
 
@@ -581,9 +575,9 @@ footer {
     transform: translateY(-5px);
     box-shadow: var(--shadow-xl);
 
-    .service-image {
-      transform: scale(1.06);
-    }
+    // .service-image {
+    //   // transform: scale(1.06);
+    // }
   }
 
   .service-overlay {
@@ -643,6 +637,92 @@ footer {
 // 13. SERVICE PAGE - ALTERNATE LAYOUT
 // ============================================
 
+// ============================================
+// SERVICE CAROUSEL STYLES
+// ============================================
+
+.service-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #f8fafc;
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-lg);
+  min-height: 200px;
+  max-height: 320px;
+}
+
+.service-carousel-track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  will-change: transform;
+}
+
+.service-carousel-slide {
+  flex: 0 0 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8fafc;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  transform: none !important;
+}
+// Dot Indicators
+.service-carousel-dots {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  z-index: 5;
+}
+
+.service-carousel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  box-shadow: none;
+
+  &.active {
+    background: #f5630d;
+    box-shadow: 0 0 0 3px rgba(245, 99, 13, 0.3);
+  }
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+// Bottom Border
+.service-carousel-border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #f5630d;
+  z-index: 2;
+}
+
 /* Image Wrapper */
 .service-image-wrapper {
   position: relative;
@@ -655,14 +735,14 @@ footer {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    // transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
     min-height: 300px;
     max-height: 420px;
   }
 
-  &:hover img {
-    transform: scale(1.03);
-  }
+  // &:hover img {
+  //   transform: scale(1.03);
+  // }
 
   .service-image-border {
     position: absolute;
@@ -719,7 +799,7 @@ footer {
     height: 220px;
 
     img {
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      // transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -795,11 +875,15 @@ footer {
   }
 
   .industry-icon-wrapper {
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
 
     svg {
       transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    &:hover .industry-icon-wrapper {
+    transform: scale(1.1);
+  }
   }
 
   &:hover .industry-icon-wrapper svg {
