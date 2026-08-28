@@ -16,34 +16,45 @@
   "images": {
     "service_images": {
       "telecom": [
-        "/assets/projectPhotos/nort eastern.jpeg",
-        "/assets/projectPhotos/erriccsson link installation integration.jpeg",
-        "/assets/projectPhotos/aviat.jpeg"
+        "/assets/projectPhotos/Telecomm.jpeg",
+        "/assets/projectPhotos/Telecomm.jpeg",
+        "/assets/projectPhotos/Telecomm.jpeg"
       ],
       "civil-works": [
-        "/assets/projectPhotos/setlite.jpeg",
-        "/assets/projectPhotos/setlite.jpeg"
+        "/assets/projectPhotos/civil-work.webp",
+        "/assets/projectPhotos/civil-work.webp"
        
       ],
       "ict": [
-        "/assets/projectPhotos/erriccsson link installation integration.jpeg",
-        "/assets/projectPhotos/aviat.jpeg",
-        "/assets/projectPhotos/rf-system.jpeg"
+        "/assets/projectPhotos/ICT.jpeg",
+        "/assets/projectPhotos/ICT.jpeg",
+        "/assets/projectPhotos/ICT.jpeg"
       ],
       "mechanical": [
-        "/assets/projectPhotos/solar.jpeg",
-        "/assets/projectPhotos/nort eastern.jpeg",
-        "/assets/projectPhotos/erriccsson link installation integration.jpeg"
+        "/assets/projectPhotos/Mechanical.jpeg",
+        "/assets/projectPhotos/Mechanical.jpeg",
+        "/assets/projectPhotos/Mechanical.jpeg"
       ],
       "solar": [
+        "/assets/projectPhotos/solar-power.webp",
         "/assets/projectPhotos/solar.jpeg",
-        "/assets/projectPhotos/rf-system.jpeg",
-        "/assets/projectPhotos/nort eastern.jpeg"
+        "/assets/projectPhotos/solar-power.webp"
       ],
       "cctv": [
-        "/assets/projectPhotos/aviat.jpeg",
-        "/assets/projectPhotos/solar.jpeg",
-        "/assets/projectPhotos/rf-system.jpeg"
+        "/assets/projectPhotos/cctv.jpeg",
+        "/assets/projectPhotos/cctv.jpeg",
+        "/assets/projectPhotos/cctv.jpeg"
+      ],
+      
+
+      "wifi": [
+         "/assets/projectPhotos/wifi-installation.webp"
+      ],
+      "wind": [
+         "/assets/projectPhotos/wind-turbine.webp"
+      ],
+      "fiber": [
+         "/assets/projectPhotos/fiber-installation.webp"
       ]
     },
     "team": {
@@ -59,7 +70,7 @@
       "proj-4": "/assets/projectPhotos/nort eastern.jpeg"
     },
     "pages": {
-      "home": "/assets/projectPhotos/aviat.jpeg",
+      "home": "/assets/projectPhotos/hero-image.webp",
       "about": "/assets/projectPhotos/erriccsson link installation integration.jpeg",
       "story": "/assets/projectPhotos/juba,south sudan-2025.jpeg"
     }
