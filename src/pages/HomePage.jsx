@@ -96,24 +96,52 @@ export default function HomePage() {
 
           <Row className="g-4">
             {home.services.map((service) => {
-              const imagePath = serviceImages[service.id] || `/airo-assets/images/services/${service.id}.jpg`;
+              // Handle both array and single image formats
+              const serviceImageData = serviceImages[service.id];
+              let imagePath;
+              
+              if (Array.isArray(serviceImageData) && serviceImageData.length > 0) {
+                // If it's an array, use the first image
+                imagePath = serviceImageData[0];
+              } else if (typeof serviceImageData === 'string') {
+                // If it's a string, use it directly
+                imagePath = serviceImageData;
+              } else {
+                // Fallback
+                imagePath = `/airo-assets/images/services/${service.id}.jpg`;
+              }
+              
               return (
                 <Col key={service.id} lg={4} md={6}>
                   <div className="service-card shadow-sm h-100 service-card scroll-reveal-scale" style={{transitionDelay: '0.1s'}}>
-                    <img
-                      src={imagePath}
-                      alt={service.title}
-                      className="service-image w-100"
-                    />
+                    <div className="service-image-wrapper" style={{ 
+                      height: '240px', 
+                      overflow: 'hidden',
+                      backgroundColor: '#f8fafc',
+                      position: 'relative'
+                    }}>
+                      <img
+                        src={imagePath}
+                        alt={service.title}
+                        className="service-image w-100 h-100"
+                        style={{
+                          objectFit: 'contain',
+                          objectPosition: 'center',
+                          width: '100%',
+                          height: '100%',
+                          display: 'block'
+                        }}
+                      />
+                    </div>
                     <div className="service-overlay">
                       <h3 className="h5 font-heading text-white fw-bold mb-2">{service.title}</h3>
                       <p className="text-white-50 small mb-3">{service.description}</p>
                       <Link to={`/services#${service.id}`} className="text-primary-brand fw-semibold text-decoration-none d-inline-flex align-items-center">
-                      Learn More
-                      <svg className="ms-1.5" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
-                    </Link>
+                        Learn More
+                        <svg className="ms-1.5" width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </Link>
                     </div>
                   </div>
                 </Col>
