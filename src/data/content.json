@@ -15,12 +15,36 @@
   },
   "images": {
     "service_images": {
-      "telecom": "/assets/projectPhotos/nort eastern.jpeg",
-      "civil-works": "/assets/projectPhotos/rf-system.jpeg",
-      "ict": "/assets/projectPhotos/erriccsson link installation integration.jpeg",
-      "mechanical": "/assets/projectPhotos/solar.jpeg",
-      "solar": "/assets/projectPhotos/solar.jpeg",
-      "cctv": "/assets/projectPhotos/solar.jpeg"
+      "telecom": [
+        "/assets/projectPhotos/nort eastern.jpeg",
+        "/assets/projectPhotos/erriccsson link installation integration.jpeg",
+        "/assets/projectPhotos/aviat.jpeg"
+      ],
+      "civil-works": [
+        "/assets/projectPhotos/setlite.jpeg",
+        "/assets/projectPhotos/setlite.jpeg"
+       
+      ],
+      "ict": [
+        "/assets/projectPhotos/erriccsson link installation integration.jpeg",
+        "/assets/projectPhotos/aviat.jpeg",
+        "/assets/projectPhotos/rf-system.jpeg"
+      ],
+      "mechanical": [
+        "/assets/projectPhotos/solar.jpeg",
+        "/assets/projectPhotos/nort eastern.jpeg",
+        "/assets/projectPhotos/erriccsson link installation integration.jpeg"
+      ],
+      "solar": [
+        "/assets/projectPhotos/solar.jpeg",
+        "/assets/projectPhotos/rf-system.jpeg",
+        "/assets/projectPhotos/nort eastern.jpeg"
+      ],
+      "cctv": [
+        "/assets/projectPhotos/aviat.jpeg",
+        "/assets/projectPhotos/solar.jpeg",
+        "/assets/projectPhotos/rf-system.jpeg"
+      ]
     },
     "team": {
       "tm-1": "/assets/teamPhotos/kathinzi.jpg",
