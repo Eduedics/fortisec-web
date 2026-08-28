@@ -21,7 +21,7 @@ const IndustryIcons = {
   ),
   isp: (
     <svg width="40" height="40" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="1.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0121 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M9 15.75h6M9 12.75h6" />
     </svg>
   ),
@@ -35,46 +35,70 @@ const IndustryIcons = {
   )
 };
 
-// Carousel Component for Service Images
-function ServiceCarousel({ images, alt }) {
+// Service Carousel Component
+function ServiceCarousel({ images, alt, serviceId }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const slideCount = images.length;
+  const autoPlayRef = useRef(null);
 
   useEffect(() => {
     if (slideCount <= 1) return;
     
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slideCount);
-    }, 4000);
+    if (!isPaused) {
+      autoPlayRef.current = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % slideCount);
+      }, 4000);
+    } else {
+      clearInterval(autoPlayRef.current);
+    }
 
-    return () => clearInterval(interval);
-  }, [slideCount]);
+    return () => {
+      if (autoPlayRef.current) clearInterval(autoPlayRef.current);
+    };
+  }, [slideCount, isPaused]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
+    setIsPaused(true);
+    clearTimeout(window.resumeTimeout);
+    window.resumeTimeout = setTimeout(() => setIsPaused(false), 6000);
   };
 
+  if (!images || images.length === 0) {
+    return (
+      <div className="service-carousel-wrapper d-flex align-items-center justify-content-center">
+        <p className="text-muted">No images available</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="service-carousel-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
-      <div className="service-carousel-track" style={{ 
-        transform: `translateX(-${currentSlide * 100}%)`,
-        transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
-      }}>
+    <div 
+      className="service-carousel-wrapper"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <div 
+        className="service-carousel-track" 
+        style={{ 
+          transform: `translateX(-${currentSlide * 100}%)`,
+          transition: 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+        }}
+      >
         {images.map((img, index) => (
           <div key={index} className="service-carousel-slide">
             <img
               src={img}
               alt={`${alt} - ${index + 1}`}
-              className="w-100 h-100 object-fit-cover"
-              style={{ minHeight: '300px', maxHeight: '420px', objectFit: 'cover' }}
+              loading="lazy"
             />
           </div>
         ))}
       </div>
 
-      {/* Dot Indicators */}
       {slideCount > 1 && (
-        <div className="service-carousel-dots position-absolute bottom-3 start-50 translate-middle-x d-flex gap-2">
+        <div className="service-carousel-dots">
           {images.map((_, index) => (
             <button
               key={index}
@@ -86,8 +110,7 @@ function ServiceCarousel({ images, alt }) {
         </div>
       )}
 
-      {/* Bottom Border */}
-      <div className="position-absolute bottom-0 start-0 end-0" style={{ height: '4px', background: 'rgb(249, 234, 255)' }}></div>
+      <div className="service-carousel-border"></div>
     </div>
   );
 }
@@ -99,7 +122,7 @@ export default function ServicesPage() {
   
   const services = servicesData.services;
   const hasMore = visibleCount < services.length;
-  // const visibleServices = services.slice(0, visibleCount);
+  const visibleServices = services.slice(0, visibleCount);
 
   const handleLoadMore = () => {
     setVisibleCount(prev => Math.min(prev + ITEMS_PER_PAGE, services.length));
@@ -110,7 +133,6 @@ export default function ServicesPage() {
     document.getElementById('services-list')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Handle scroll to service section when navigating from homepage
   useEffect(() => {
     if (location.hash) {
       const targetId = location.hash.replace('#', '');
@@ -123,21 +145,20 @@ export default function ServicesPage() {
     }
   }, [location]);
 
-  // Generate carousel images for each service
   const getCarouselImages = (serviceId) => {
-    // You can customize this array with multiple images per service
-    const baseImage = serviceImages[serviceId] || `${serviceId}.jpg`;
-    // For demo, using the same image with different angles or you can add more images
-    return [baseImage];
+    const imagesForService = serviceImages[serviceId];
+    if (Array.isArray(imagesForService) && imagesForService.length > 0) return imagesForService;
+    if (typeof imagesForService === 'string' && imagesForService.length > 0) return [imagesForService];
+    console.warn(`No images found for service: ${serviceId}, using default`);
+    return ['/assets/projectPhotos/aviat.jpeg'];
   };
 
   return (
     <>
       {/* Hero */}
-      <section className="hero-section position-relative overflow-hidden bg-navy" style={{ minHeight: '52vh' }}>
-        <div className="position-absolute top-0 start-0 w-100 h-100 bg-navy" />
-        <Container className="hero-content position-relative pt-5 pb-5">
-          <Row className="align-items-center pt-5" style={{ minHeight: '40vh' }}>
+      <section className="hero-section bg-navy">
+        <Container className="hero-content">
+          <Row className="align-items-center" style={{ minHeight: '40vh' }}>
             <Col lg={8}>
               <div className="animate-fade-in-up">
                 <span className="badge-pill-orange mb-3">What We Do</span>
@@ -221,9 +242,9 @@ export default function ServicesPage() {
         </section>
       )}
 
-      {/* Services List - Alternate Layout */}
+      {/* Services List */}
       <section id="services-list" ref={servicesRef} style={{ scrollMarginTop: '80px' }}>
-        {services.map((service, index) => {
+        {visibleServices.map((service, index) => {
           const isEven = index % 2 === 0;
           const carouselImages = getCarouselImages(service.id);
           const bgClass = isEven ? 'bg-white' : 'bg-light-soft';
@@ -237,24 +258,14 @@ export default function ServicesPage() {
             >
               <Container className="py-4">
                 <Row className={`align-items-center g-5 ${isEven ? '' : 'flex-row-reverse'}`}>
-                  {/* Image Column - with Carousel */}
                   <Col lg={6}>
-                    {carouselImages.length > 1 ? (
-                      <ServiceCarousel images={carouselImages} alt={service.title} />
-                    ) : (
-                      <div className="service-image-wrapper position-relative rounded-4 overflow-hidden shadow-lg">
-                        <img
-                          src={carouselImages[0]}
-                          alt={service.title}
-                          className="w-100 h-100 object-fit-cover"
-                          style={{ minHeight: '300px', maxHeight: '420px', objectFit: 'cover' }}
-                        />
-                        <div className="position-absolute bottom-0 start-0 end-0" style={{ height: '4px', background: ' #f5630d' }}></div>
-                      </div>
-                    )}
+                    <ServiceCarousel 
+                      images={carouselImages} 
+                      alt={service.title}
+                      serviceId={service.id}
+                    />
                   </Col>
 
-                  {/* Content Column */}
                   <Col lg={6}>
                     <div className="service-content">
                       <span className="badge-pill-orange mb-3">{service.tagline}</span>
